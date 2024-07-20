@@ -2,8 +2,18 @@ import express from 'express';
 import { db_connection } from '../db_connection';
 import { QueryError, QueryResult } from 'mysql2';
 import * as jwt from 'jsonwebtoken';
+import * as nodemailer from 'nodemailer';
 
 const userRouter = express.Router();
+const mailService = nodemailer.createTransport({
+    host: 'mail.berkelium.dev',
+    port: 465,
+    secure: true,
+    auth: {
+      user: process.env['EMAIL'],
+      pass: process.env['EMAIL_PASS']
+    }
+});
 
 userRouter.post('/signup', (req, res) => {
     const user = req.body;
@@ -65,6 +75,44 @@ userRouter.post('/login', (req, res) => {
         } else {
             return res.status(500).json({
                 message: 'Login error',
+                error: err
+            });
+        }
+    });
+});
+
+userRouter.post('/forgot-password', (req, res) => {
+    const user = req.body;
+    const query = 'SELECT email, password from mp_users where email=?';
+    db_connection.query(query, user['email'], (err: QueryError, results: QueryResult) => {
+        if (!err) {
+            if ((results as Array<QueryResult>).length <= 0) {
+                return res.status(200).json({
+                    message: 'Password reset sent your email',
+                });
+            } else {
+                const mailOptions = {
+                    from: 'Mercury POS Admin',
+                    to: results[0]['email'],
+                    subject: 'Password Reset Request',
+                    html: `<p>Your password reset link</p>`
+                };
+
+                mailService.sendMail(mailOptions, (mailErr, info) => {
+                    if (mailErr) {
+                        console.log(mailErr);
+                    } else {
+                        console.log(info);
+                    }
+                });
+
+                return res.status(200).json({
+                    message: 'Password reset sent your email',
+                });
+            }
+        } else {
+            return res.status(500).json({
+                message: 'Password reset error',
                 error: err
             });
         }
