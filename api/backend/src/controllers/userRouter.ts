@@ -159,4 +159,10 @@ userRouter.patch('/update', (req, res) => {
     });
 });
 
+userRouter.get('/checkToken', (req, res) => {
+    return res.status(200).json({
+        message: 'true',
+    });
+});
+
 export default userRouter;
