@@ -124,7 +124,7 @@ userRouter.get('/all', (req, res) => {
     db_connection.query(query, (err: QueryError, results: QueryResult) => {
         if (!err) {
             return res.status(200).json({
-                message: 'Password reset error',
+                message: 'Success',
                 results: results
             });
         } else {
@@ -163,6 +163,11 @@ userRouter.get('/checkToken', (req, res) => {
     return res.status(200).json({
         message: 'true',
     });
+});
+
+userRouter.post('/changepass', (req, res) => {
+    const user = req.body;
+    const query = "UPDATE mp_users set status=? where id=?";
 });
 
 export default userRouter;
