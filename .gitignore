@@ -38,8 +38,9 @@ testem.log
 .DS_Store
 Thumbs.db
 
+# Environment variables
+.env
 
-
-
+# Nx
 .nx/cache
 .nx/workspace-data
