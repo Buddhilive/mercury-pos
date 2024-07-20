@@ -10,7 +10,9 @@
           "error",
           {
             "enforceBuildableLibDependency": true,
-            "allow": [],
+            "allow": [
+              "mysql"
+            ],
             "depConstraints": [
               {
                 "sourceTag": "*",

@@ -5,6 +5,7 @@
 
 import express from 'express';
 import * as path from 'path';
+import { db_connection } from './db_connection';
 
 const app = express();
 
@@ -19,3 +20,11 @@ const server = app.listen(port, () => {
     console.log(`Listening at http://localhost:${port}/api`);
 });
 server.on('error', console.error);
+
+db_connection.connect((err) => {
+    if(!err) {
+        console.log(`Database is connected`);
+    } else {
+        console.log(err);
+    }
+});
