@@ -10,8 +10,8 @@ const mailService = nodemailer.createTransport({
     port: 465,
     secure: true,
     auth: {
-      user: process.env['EMAIL'],
-      pass: process.env['EMAIL_PASS']
+        user: process.env['EMAIL'],
+        pass: process.env['EMAIL_PASS']
     }
 });
 
@@ -113,6 +113,23 @@ userRouter.post('/forgot-password', (req, res) => {
         } else {
             return res.status(500).json({
                 message: 'Password reset error',
+                error: err
+            });
+        }
+    });
+});
+
+userRouter.get('/all', (req, res) => {
+    const query = "SELECT id, name, email, contactNumber, status from mp_users where role='user'";
+    db_connection.query(query, (err: QueryError, results: QueryResult) => {
+        if (!err) {
+            return res.status(200).json({
+                message: 'Password reset error',
+                results: results
+            });
+        } else {
+            return res.status(500).json({
+                message: 'Error when fetching users',
                 error: err
             });
         }
