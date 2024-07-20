@@ -138,7 +138,7 @@ userRouter.get('/all', authenticateToken, checkRole, (req, res) => {
     });
 });
 
-userRouter.patch('/update', authenticateToken, checkRole, (req, res) => {
+userRouter.patch('/update', authenticateToken, (req, res) => {
     const user = req.body;
     const query = "UPDATE mp_users set status=? where id=?";
     db_connection.query(query, [user['status'], user['id']], (err: QueryError, results: QueryResult) => {
@@ -167,9 +167,45 @@ userRouter.get('/checkToken', (req, res) => {
     });
 });
 
-userRouter.post('/changepass', (req, res) => {
+userRouter.post('/changepass', authenticateToken, (req, res) => {
     const user = req.body;
-    const query = "UPDATE mp_users set status=? where id=?";
+    const email = res.locals['email'];
+
+    let query = "SELECT * from mp_users where email=? and password=?";
+    db_connection.query(query, [email, user['oldPassword']], (err: QueryError, results: QueryResult) => {
+        if (!err) {
+            if ((results as Array<QueryResult>).length <= 0) {
+                return res.status(400).json({
+                    message: 'Old password is incorrect',
+                    error: err
+                });
+            } else if (results[0]['password'] == user['oldPassword']) {
+                query = "UPDATE mp_users set password=? where email=?";
+                return db_connection.query(query, [user['newPassword'], email], (err: QueryError, results: QueryResult) => {
+                    if (!err) {
+                        return res.status(200).json({
+                            message: "Password changed successfully.",
+                        });
+                    } else {
+                        return res.status(500).json({
+                            message: "Couldn't update password. Try again later.",
+                            error: err
+                        });
+                    }
+                });
+            } else {
+                return res.status(400).json({
+                    message: 'Password change unsuccessful. Try again later.',
+                    error: err
+                });
+            }
+        } else {
+            return res.status(500).json({
+                message: 'Error changing password',
+                error: err
+            });
+        }
+    });
 });
 
 export default userRouter;
