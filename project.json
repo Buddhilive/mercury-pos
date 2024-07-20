@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/nx/schemas/project-schema.json",
-  "name": "sakai-ng",
+  "name": "mercury-pos",
   "projectType": "application",
   "generators": {
     "@schematics/angular:component": {
@@ -13,7 +13,7 @@
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
       "options": {
-        "outputPath": "dist/sakai-ng",
+        "outputPath": "dist/mercury-pos",
         "index": "src/index.html",
         "main": "src/main.ts",
         "polyfills": [
@@ -64,10 +64,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "buildTarget": "sakai-ng:build:production"
+          "buildTarget": "mercury-pos:build:production"
         },
         "development": {
-          "buildTarget": "sakai-ng:build:development"
+          "buildTarget": "mercury-pos:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -75,7 +75,7 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "buildTarget": "sakai-ng:build"
+        "buildTarget": "mercury-pos:build"
       }
     },
     "test": {
