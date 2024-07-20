@@ -1,102 +1,88 @@
 {
-  "$schema": "node_modules/nx/schemas/project-schema.json",
-  "name": "mercury-pos",
-  "projectType": "application",
-  "generators": {
-    "@schematics/angular:component": {
-      "style": "scss"
-    }
-  },
-  "sourceRoot": "src",
-  "prefix": "app",
-  "targets": {
-    "build": {
-      "executor": "@angular-devkit/build-angular:browser",
-      "options": {
-        "outputPath": "dist/mercury-pos",
-        "index": "src/index.html",
-        "main": "src/main.ts",
-        "polyfills": [
-          "zone.js"
-        ],
-        "tsConfig": "tsconfig.app.json",
-        "inlineStyleLanguage": "scss",
-        "assets": [
-          "src/favicon.ico",
-          "src/assets"
-        ],
-        "styles": [
-          "src/styles.scss"
-        ],
-        "scripts": []
-      },
-      "configurations": {
-        "production": {
-          "budgets": [
-            {
-              "type": "initial",
-              "maximumWarning": "1mb",
-              "maximumError": "5mb"
+    "name": "mercury-pos",
+    "$schema": "node_modules/nx/schemas/project-schema.json",
+    "projectType": "application",
+    "sourceRoot": "src",
+    "prefix": "app",
+    "generators": {
+        "@schematics/angular:component": {
+            "style": "scss"
+        }
+    },
+    "targets": {
+        "build": {
+            "executor": "@angular-devkit/build-angular:browser",
+            "options": {
+                "outputPath": "dist/mercury-pos",
+                "index": "src/index.html",
+                "main": "src/main.ts",
+                "polyfills": ["zone.js"],
+                "tsConfig": "tsconfig.app.json",
+                "inlineStyleLanguage": "scss",
+                "assets": ["src/favicon.ico", "src/assets"],
+                "styles": ["src/styles.scss"],
+                "scripts": []
             },
-            {
-              "type": "anyComponentStyle",
-              "maximumWarning": "2kb",
-              "maximumError": "4kb"
+            "configurations": {
+                "production": {
+                    "budgets": [
+                        {
+                            "type": "initial",
+                            "maximumWarning": "1mb",
+                            "maximumError": "5mb"
+                        },
+                        {
+                            "type": "anyComponentStyle",
+                            "maximumWarning": "2kb",
+                            "maximumError": "4kb"
+                        }
+                    ],
+                    "outputHashing": "all"
+                },
+                "development": {
+                    "buildOptimizer": false,
+                    "optimization": false,
+                    "vendorChunk": true,
+                    "extractLicenses": false,
+                    "sourceMap": true,
+                    "namedChunks": true
+                }
+            },
+            "defaultConfiguration": "production",
+            "outputs": ["{options.outputPath}"]
+        },
+        "serve": {
+            "executor": "@angular-devkit/build-angular:dev-server",
+            "configurations": {
+                "production": {
+                    "buildTarget": "mercury-pos:build:production"
+                },
+                "development": {
+                    "buildTarget": "mercury-pos:build:development"
+                }
+            },
+            "defaultConfiguration": "development",
+            "options": {
+                "proxyConfig": "./proxy.conf.json"
             }
-          ],
-          "outputHashing": "all"
         },
-        "development": {
-          "buildOptimizer": false,
-          "optimization": false,
-          "vendorChunk": true,
-          "extractLicenses": false,
-          "sourceMap": true,
-          "namedChunks": true
-        }
-      },
-      "defaultConfiguration": "production",
-      "outputs": [
-        "{options.outputPath}"
-      ]
-    },
-    "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
-      "configurations": {
-        "production": {
-          "buildTarget": "mercury-pos:build:production"
+        "extract-i18n": {
+            "executor": "@angular-devkit/build-angular:extract-i18n",
+            "options": {
+                "buildTarget": "mercury-pos:build"
+            }
         },
-        "development": {
-          "buildTarget": "mercury-pos:build:development"
+        "test": {
+            "executor": "@angular-devkit/build-angular:karma",
+            "options": {
+                "polyfills": ["zone.js", "zone.js/testing"],
+                "tsConfig": "tsconfig.spec.json",
+                "karmaConfig": "karma.conf.js",
+                "inlineStyleLanguage": "scss",
+                "assets": ["src/favicon.ico", "src/assets"],
+                "styles": ["src/styles.scss"],
+                "scripts": []
+            }
         }
-      },
-      "defaultConfiguration": "development"
-    },
-    "extract-i18n": {
-      "executor": "@angular-devkit/build-angular:extract-i18n",
-      "options": {
-        "buildTarget": "mercury-pos:build"
-      }
-    },
-    "test": {
-      "executor": "@angular-devkit/build-angular:karma",
-      "options": {
-        "polyfills": [
-          "zone.js",
-          "zone.js/testing"
-        ],
-        "tsConfig": "tsconfig.spec.json",
-        "karmaConfig": "karma.conf.js",
-        "inlineStyleLanguage": "scss",
-        "assets": [
-          "src/favicon.ico",
-          "src/assets"
-        ],
-        "styles": [
-          "src/styles.scss"
-        ],
-        "scripts": []
-      }
     }
-  }
 }
