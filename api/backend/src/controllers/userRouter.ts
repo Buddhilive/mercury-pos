@@ -121,7 +121,7 @@ userRouter.post('/forgot-password', (req, res) => {
     });
 });
 
-userRouter.get('/all', authenticateToken, (req, res) => {
+userRouter.get('/all', authenticateToken, checkRole, (req, res) => {
     const query = "SELECT id, name, email, contactNumber, status from mp_users where role='user'";
     db_connection.query(query, (err: QueryError, results: QueryResult) => {
         if (!err) {
@@ -138,7 +138,7 @@ userRouter.get('/all', authenticateToken, (req, res) => {
     });
 });
 
-userRouter.patch('/update', (req, res) => {
+userRouter.patch('/update', authenticateToken, checkRole, (req, res) => {
     const user = req.body;
     const query = "UPDATE mp_users set status=? where id=?";
     db_connection.query(query, [user['status'], user['id']], (err: QueryError, results: QueryResult) => {

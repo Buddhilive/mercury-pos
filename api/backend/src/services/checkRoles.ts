@@ -1,4 +1,4 @@
-import { NextFunction, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 
 export function checkRole(req: Request, res: Response, next: NextFunction) {
     if(res.locals['role'] == 'user') {
