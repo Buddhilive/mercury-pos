@@ -1,6 +1,6 @@
 import express from 'express';
 import { db_connection } from '../db_connection';
-import { QueryError, QueryResult } from 'mysql2';
+import { QueryError, QueryResult, ResultSetHeader } from 'mysql2';
 import * as jwt from 'jsonwebtoken';
 import * as nodemailer from 'nodemailer';
 
@@ -130,6 +130,29 @@ userRouter.get('/all', (req, res) => {
         } else {
             return res.status(500).json({
                 message: 'Error when fetching users',
+                error: err
+            });
+        }
+    });
+});
+
+userRouter.patch('/update', (req, res) => {
+    const user = req.body;
+    const query = "UPDATE mp_users set status=? where id=?";
+    db_connection.query(query, [user['status'], user['id']], (err: QueryError, results: QueryResult) => {
+        if (!err) {
+            if ((results as ResultSetHeader).affectedRows == 0) {
+                return res.status(401).json({
+                    message: 'User ID does not exist',
+                });
+            } else {
+                return res.status(200).json({
+                    message: 'User updated successfully',
+                });
+            }
+        } else {
+            return res.status(500).json({
+                message: 'Error updating user',
                 error: err
             });
         }
