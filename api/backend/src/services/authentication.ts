@@ -1,23 +1,20 @@
-import { NextFunction, response, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import * as jwt from 'jsonwebtoken';
 
 export function authenticateToken(req: Request, res: Response, next: NextFunction) {
-    const authHeader = req.headers['authorization'];
+    const authHeader = req.headers.authorization;
     const token = authHeader && authHeader.split(' ')[1];
 
-    if (token === null) {
+    if (token == null) {
         return res.sendStatus(401);
     }
 
-    jwt.verify(token, process.env['ACCESS_TOKEN'], (err, resp) => {
+    return jwt.verify(token, process.env['ACCESS_TOKEN'], (err, resp) => {
         if (err) {
-            return res.sendStatus(403)
+            return res.sendStatus(403);
         }
 
-        res.locals = response;
-        next();
-        return res.sendStatus(200);
+        res.locals = resp as any;
+        return next();
     });
-
-    return true;
 }

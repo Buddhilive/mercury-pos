@@ -3,6 +3,8 @@ import { db_connection } from '../db_connection';
 import { QueryError, QueryResult, ResultSetHeader } from 'mysql2';
 import * as jwt from 'jsonwebtoken';
 import * as nodemailer from 'nodemailer';
+import { authenticateToken } from '../services/authentication';
+import { checkRole } from '../services/checkRoles';
 
 const userRouter = express.Router();
 const mailService = nodemailer.createTransport({
@@ -119,7 +121,7 @@ userRouter.post('/forgot-password', (req, res) => {
     });
 });
 
-userRouter.get('/all', (req, res) => {
+userRouter.get('/all', authenticateToken, (req, res) => {
     const query = "SELECT id, name, email, contactNumber, status from mp_users where role='user'";
     db_connection.query(query, (err: QueryError, results: QueryResult) => {
         if (!err) {
