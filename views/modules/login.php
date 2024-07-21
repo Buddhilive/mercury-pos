@@ -7,7 +7,7 @@
         <div class="card-body login-card-body">
             <p class="login-box-msg">Sign in to start your session</p>
 
-            <form method="post" action="dashboard">
+            <form method="post">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Username" name="authUsername" required>
                     <div class="input-group-append">

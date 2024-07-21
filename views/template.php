@@ -36,12 +36,15 @@
                 $_GET["route"] == "clients" ||
                 $_GET["route"] == "sales" ||
                 $_GET["route"] == "create-sales" ||
-                $_GET["route"] == "reports"
+                $_GET["route"] == "reports" ||
+                $_GET["route"] == "logout"
             ) {
                 include "modules/" . $_GET["route"] . ".php";
             } else {
                 include "modules/404.php";
             }
+        } else {
+            include "modules/dashboard.php";
         }
         /* Footer */
         include "modules/footer.php";

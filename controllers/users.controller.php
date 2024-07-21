@@ -16,6 +16,8 @@ class UserController
 
                 if ($answer["username"] == $_POST["authUsername"] && $answer["password"] == $_POST["authPassword"]) {
                     $_SESSION["authSession"] = "ok";
+                    header('Location: dashboard');
+                    exit;
                 } else {
                     echo '<br><div class="alert alert-danger">User or password incorrect</div>';
                 }

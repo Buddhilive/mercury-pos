@@ -1,3 +1,3 @@
 <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
+    <a class="btn btn-primary btn-block" href="logout">Logout</a>
 </aside>
