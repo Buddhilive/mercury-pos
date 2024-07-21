@@ -23,3 +23,7 @@
 # Nx
 .nx/cache
 .nx/workspace-data
+
+# AdminLTE
+views/dist/
+views/plugins/
