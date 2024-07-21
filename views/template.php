@@ -16,14 +16,12 @@
 <body class="hold-transition sidebar-mini">
     <!-- Site wrapper -->
     <div class="wrapper">
-        <!-- Header -->
-        <?php
-        include "modules/header.php";
-        ?>
-        <!-- Header ends -->
 
-        <!-- Main Sidebar Container -->
         <?php
+
+        /* Header */
+        include "modules/header.php";
+        /* Sidebar */
         include "modules/sidebar.php";
         ?>
 
