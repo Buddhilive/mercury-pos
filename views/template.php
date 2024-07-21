@@ -1,3 +1,7 @@
+<?php
+  session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,12 +17,10 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="views/dist/css/adminlte.min.css">
 </head>
-
-<body class="hold-transition sidebar-mini login-page">
-
     <?php
     /* Authorized content */
-    if ($_SESSION["authSession"] && $_SESSION["authSession"] == "ok") {
+    if (isset($_SESSION["authSession"]) && $_SESSION["authSession"] == "ok") {
+        echo '<body class="hold-transition sidebar-mini">';
         echo '<div class="wrapper">';
         /* Header */
         include "modules/header.php";
@@ -48,6 +50,7 @@
         echo '</div>';
     } else {
         /* Login page */
+        echo '<body class="hold-transition sidebar-mini login-page">';
         include 'modules/login.php';
     }
     ?>

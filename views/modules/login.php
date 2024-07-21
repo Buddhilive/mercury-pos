@@ -7,9 +7,9 @@
         <div class="card-body login-card-body">
             <p class="login-box-msg">Sign in to start your session</p>
 
-            <form action="dashboard" method="post">
+            <form method="post" action="dashboard">
                 <div class="input-group mb-3">
-                    <input type="email" class="form-control" placeholder="Email" name="authEmail" required>
+                    <input type="text" class="form-control" placeholder="Username" name="authUsername" required>
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-envelope"></span>
@@ -39,6 +39,11 @@
                     </div>
                     <!-- /.col -->
                 </div>
+
+                <?php
+                $login = new UserController();
+                $login -> ctrInitUserLogin();
+                 ?>
             </form>
 
             <p class="mb-1">
