@@ -24,7 +24,20 @@
         /* Sidebar */
         include "modules/sidebar.php";
         /* Content */
-        include "modules/content.php";
+        if (isset($_GET["route"])) {
+            if (
+                $_GET["route"] == "dashboard" ||
+                $_GET["route"] == "users" ||
+                $_GET["route"] == "categories" ||
+                $_GET["route"] == "products" ||
+                $_GET["route"] == "client" ||
+                $_GET["route"] == "sales" ||
+                $_GET["route"] == "create-sales" ||
+                $_GET["route"] == "reports"
+            ) {
+                include "modules/" . $_GET["route"] . ".php";
+            }
+        }
         /* Footer */
         include "modules/footer.php";
         /* Control Panel */
