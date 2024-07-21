@@ -8,6 +8,7 @@ import * as path from 'path';
 import bodyParser from 'body-parser';
 import { db_connection } from './db_connection';
 import userRouter from './controllers/userRouter';
+import categoryRouter from './controllers/category';
 
 const app = express();
 app.use(bodyParser.json({limit: "100mb"}));
@@ -20,6 +21,8 @@ app.get('/api', (req, res) => {
 });
 
 app.use('/user', userRouter);
+
+app.use('/category', categoryRouter);
 
 const port = process.env['PORT'] || 3333;
 const server = app.listen(port, () => {
