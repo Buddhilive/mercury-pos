@@ -27,4 +27,10 @@ values
         '123456',
         'true',
         'admin'
-    )
+    );
+
+CREATE TABLE
+    mp_category (
+        id int primary key AUTO_INCREMENT,
+        name varchar(255) NOT NULL
+    );
