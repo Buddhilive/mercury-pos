@@ -30,7 +30,7 @@
                 $_GET["route"] == "users" ||
                 $_GET["route"] == "categories" ||
                 $_GET["route"] == "products" ||
-                $_GET["route"] == "client" ||
+                $_GET["route"] == "clients" ||
                 $_GET["route"] == "sales" ||
                 $_GET["route"] == "create-sales" ||
                 $_GET["route"] == "reports"

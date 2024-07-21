@@ -32,32 +32,74 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+                <li class="nav-item">
+                    <a href="dashboard" class="nav-link">
+                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <p>
+                            Dashboard
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="clients" class="nav-link">
+                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <p>
+                            Clients
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="categories" class="nav-link">
+                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <p>
+                            Categories
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="products" class="nav-link">
+                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <p>
+                            Products
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
-                            Dashboard
+                            Sales
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="/" class="nav-link">
+                            <a href="create-sales" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Dashboard v1</p>
+                                <p>Create Sales</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="sales" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>All Sales</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li class="nav-header">EXAMPLES</li>
                 <li class="nav-item">
-                    <a href="../calendar.html" class="nav-link">
+                    <a href="reports" class="nav-link">
                         <i class="nav-icon far fa-calendar-alt"></i>
                         <p>
-                            Calendar
-                            <span class="badge badge-info right">2</span>
+                            Reports
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="users" class="nav-link">
+                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <p>
+                            Users
                         </p>
                     </a>
                 </li>
