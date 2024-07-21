@@ -27,15 +27,11 @@
         include "modules/content.php";
         /* Footer */
         include "modules/footer.php";
+        /* Control Panel */
+        include "modules/control-panel.php";
         ?>
 
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
     </div>
-    <!-- ./wrapper -->
 
     <!-- jQuery -->
     <script src="views/plugins/jquery/jquery.min.js"></script>
