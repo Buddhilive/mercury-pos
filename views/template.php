@@ -87,6 +87,7 @@ if (isset($_SESSION["authSession"]) && $_SESSION["authSession"] == "ok") {
 <script src="views/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <!-- Main -->
 <script src="views/js/main.js"></script>
+<script src="views/js/users.js"></script>
 </body>
 
 </html>
