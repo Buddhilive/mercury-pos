@@ -20,6 +20,10 @@ session_start();
     <link rel="stylesheet" href="views/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="views/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="views/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <!-- sweetalert2 -->
+    <link rel="stylesheet" href="views/css/swtalert.css">
+    <!-- sweetalert2 -->
+    <script src="views/js/swtalert.js"></script>
 </head>
 <?php
 /* Authorized content */
