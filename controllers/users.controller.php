@@ -6,6 +6,9 @@ class UserController
     {
         if (isset($_POST["authUsername"])) {
             if (preg_match('/^[a-zA-Z0-9]+$/', $_POST["authUsername"]) && preg_match('/^[a-zA-Z0-9]+$/', $_POST["authPassword"])) {
+
+                $encryptpass = crypt($_POST["authPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+
                 $table = 'mp_users';
                 $item = 'username';
                 $value = $_POST["authUsername"];
@@ -14,7 +17,7 @@ class UserController
 
                 // var_dump($answer);
 
-                if ($answer["username"] == $_POST["authUsername"] && $answer["password"] == $_POST["authPassword"]) {
+                if ($answer["username"] == $_POST["authUsername"] && $answer["password"] == $encryptpass) {
                     $_SESSION["authSession"] = "ok";
                     header('Location: dashboard');
                     exit;
