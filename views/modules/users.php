@@ -27,7 +27,7 @@
                 </button>
             </div>
             <div class="card-body">
-                <table class="table table-bordered table-striped data-tables">
+                <table class="table table-bordered table-striped table-responsive-lg data-tables">
                     <thead>
                         <tr>
                             <th style="width:10px">#</th>
@@ -135,6 +135,10 @@
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Save</button>
                 </div>
+                <?php 
+                    $new_user = new UserController();
+                    $new_user -> createUser();
+                ?>
             </form>
         </div>
     </div>

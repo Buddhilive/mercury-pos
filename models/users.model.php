@@ -10,13 +10,30 @@ class UsersModel
 			$stmt -> execute();
 
 			return $stmt -> fetch();
-
 		}
 		else{
 			$stmt = Connection::connect()->prepare("SELECT * FROM $table");
 			$stmt -> execute();
 
-			return $stmt -> fetchAll();			
+			return $stmt -> fetchAll();
 		}
+		$stmt = null;			
     }
+
+	static public function addUser($table, $data){
+		$stmt = Connection::connect()->prepare("INSERT INTO $table (name, username, password, profile) VALUES (:name, :username, :password, :profile)");
+
+		$stmt -> bindParam(":name", $data["name"], PDO::PARAM_STR);
+		$stmt -> bindParam(":username", $data["user"], PDO::PARAM_STR);
+		$stmt -> bindParam(":password", $data["password"], PDO::PARAM_STR);
+		$stmt -> bindParam(":profile", $data["profile"], PDO::PARAM_STR);
+
+		if ($stmt->execute()) {			
+			return 'ok';		
+		} else {			
+			return $stmt;
+		}
+
+		$stmt = null;
+	}
 }
