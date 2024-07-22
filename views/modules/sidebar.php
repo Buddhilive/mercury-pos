@@ -34,7 +34,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
                     <a href="dashboard" class="nav-link">
-                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
                         </p>
@@ -42,15 +42,15 @@
                 </li>
                 <li class="nav-item">
                     <a href="clients" class="nav-link">
-                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <i class="nav-icon fas fa-users"></i>
                         <p>
-                            Clients
+                            Customers
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="categories" class="nav-link">
-                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <i class="nav-icon fas fa-tags"></i>
                         <p>
                             Categories
                         </p>
@@ -58,7 +58,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="products" class="nav-link">
-                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <i class="nav-icon fas fa-cubes"></i>
                         <p>
                             Products
                         </p>
@@ -66,7 +66,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="nav-icon fas fa-shopping-bag"></i>
                         <p>
                             Sales
                             <i class="right fas fa-angle-left"></i>
@@ -75,13 +75,13 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="create-sales" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fas fa-cart-plus nav-icon"></i>
                                 <p>Create Sales</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="sales" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fas fa-money-bill nav-icon"></i>
                                 <p>All Sales</p>
                             </a>
                         </li>
@@ -89,7 +89,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="reports" class="nav-link">
-                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <i class="nav-icon fas fa-chart-bar"></i>
                         <p>
                             Reports
                         </p>
@@ -97,7 +97,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="users" class="nav-link">
-                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <i class="nav-icon fas fa-id-card"></i>
                         <p>
                             Users
                         </p>
