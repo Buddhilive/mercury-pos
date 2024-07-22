@@ -21,17 +21,18 @@ class UsersModel
     }
 
 	static public function addUser($table, $data){
-		$stmt = Connection::connect()->prepare("INSERT INTO $table (name, username, password, profile) VALUES (:name, :username, :password, :profile)");
+		$stmt = Connection::connect()->prepare("INSERT INTO $table (name, username, password, profile, photo) VALUES (:name, :username, :password, :profile, :photo)");
 
 		$stmt -> bindParam(":name", $data["name"], PDO::PARAM_STR);
 		$stmt -> bindParam(":username", $data["user"], PDO::PARAM_STR);
 		$stmt -> bindParam(":password", $data["password"], PDO::PARAM_STR);
 		$stmt -> bindParam(":profile", $data["profile"], PDO::PARAM_STR);
+		$stmt -> bindParam(":photo", $data["photo"], PDO::PARAM_STR);
 
 		if ($stmt->execute()) {			
 			return 'ok';		
 		} else {			
-			return $stmt;
+			return 'error';
 		}
 
 		$stmt = null;
