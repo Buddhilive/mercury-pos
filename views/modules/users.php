@@ -103,7 +103,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa fa-user"></i></span>
                                 </div>
-                                <input class="form-control input-lg" type="text" name="newName" placeholder="Add name" required>
+                                <input class="form-control input-lg" type="text" id="newName" name="newName" placeholder="Add name" required>
                             </div>
                         </div>
 

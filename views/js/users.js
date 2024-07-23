@@ -110,9 +110,9 @@ $("#newUser").change(function(){
       processData: false,
       dataType: "json",
       success: function(answer){ 
-      	// console.log("answer", answer);
+      	console.log("answer", answer);
       	if(answer){
-      		$("#newUser").parent().after('<div class="alert alert-warning">This user is already taken</div>');      		
+      		$("#newUser").parent().after('<div class="alert alert-warning">This username already taken</div>');      		
       		$("#newUser").val('');
       	}
       }
