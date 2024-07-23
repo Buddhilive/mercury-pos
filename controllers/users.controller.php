@@ -132,10 +132,116 @@ class UserController
         }
     }
 
-    static public function getAllUsers($item, $value){
-		$table = "mp_users";
-		$answer = UsersModel::showUsers($table, $item, $value);
+    static public function getAllUsers($item, $value)
+    {
+        $table = "mp_users";
+        $answer = UsersModel::showUsers($table, $item, $value);
 
-		return $answer;
-	}
+        return $answer;
+    }
+
+    static public function editUser()
+    {
+        if (isset($_POST["editUser"])) {
+            if (preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editName"])) {
+
+                $photo = $_POST["currentPicture"];
+
+                if (isset($_FILES["editPhoto"]["tmp_name"]) && !empty($_FILES["editPhoto"]["tmp_name"])) {
+                    list($width, $height) = getimagesize($_FILES["editPhoto"]["tmp_name"]);
+
+                    $newWidth = 500;
+                    $newHeight = 500;
+
+                    $folder = "views/uploads/images/users/" . $_POST["editUser"];
+
+                    if (!empty($_POST["currentPicture"])) {
+                        unlink($_POST["currentPicture"]);
+                    } else {
+                        mkdir($folder, 0755);
+                    }
+
+                    if ($_FILES["editPhoto"]["type"] == "image/jpeg") {
+                        $randomNumber = mt_rand(100, 999);
+                        $photo = "views/uploads/images/users/" . $_POST["editUser"] . "/" . $randomNumber . ".jpg";
+                        $srcImage = imagecreatefromjpeg($_FILES["editPhoto"]["tmp_name"]);
+                        $destination = imagecreatetruecolor($newWidth, $newHeight);
+                        imagecopyresized($destination, $srcImage, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
+                        imagejpeg($destination, $photo);
+                    }
+
+                    if ($_FILES["editPhoto"]["type"] == "image/png") {
+                        $randomNumber = mt_rand(100, 999);
+                        $photo = "views/uploads/images/users/" . $_POST["editUser"] . "/" . $randomNumber . ".png";
+                        $srcImage = imagecreatefrompng($_FILES["editPhoto"]["tmp_name"]);
+                        $destination = imagecreatetruecolor($newWidth, $newHeight);
+                        imagecopyresized($destination, $srcImage, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
+                        imagepng($destination, $photo);
+                    }
+                }
+
+
+                $table = 'mp_users';
+
+                if ($_POST["editPasswd"] != "") {
+                    if (preg_match('/^[a-zA-Z0-9]+$/', $_POST["editPasswd"])) {
+                        $encryptpass = crypt($_POST["editPasswd"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+                    } else {
+                        echo '<script>					
+							Swal.fire({
+								type: "error",
+								title: "No especial characters in the password or blank fields",
+								showConfirmButton: true,
+								confirmButtonText: "Close"
+								}).then(function(result){										
+									if (result.value) {						
+										window.location = "users";
+									}
+								});							
+						</script>';
+                    }
+                } else {
+                    $encryptpass = $_POST["currentPasswd"];
+                }
+
+                $data = array(
+                    'name' => $_POST["editName"],
+                    'username' => $_POST["editUser"],
+                    'password' => $encryptpass,
+                    'profile' => $_POST["editProfile"],
+                    'photo' => $photo
+                );
+
+                $answer = UsersModel::editUser($table, $data);
+
+                if ($answer == 'ok') {
+                    echo '<script>				
+						Swal.fire({
+							type: "success",
+							title: "User edited succesfully!",
+							showConfirmButton: true,
+							confirmButtonText: "Close"
+						 }).then(function(result){							
+							if (result.value) {
+								window.location = "users";
+							}
+						});
+					</script>';
+                } else {
+                    echo '<script>						
+						Swal.fire({
+							type: "error",
+							title: "No especial characters in the name or blank field",
+							showConfirmButton: true,
+							confirmButtonText: "Close"
+							 }).then(function(result){								
+								if (result.value) {
+									window.location = "users";							
+								}
+							});						
+					</script>';
+                }
+            }
+        }
+    }
 }
