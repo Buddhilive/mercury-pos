@@ -131,4 +131,11 @@ class UserController
             }
         }
     }
+
+    static public function getAllUsers($item, $value){
+		$table = "mp_users";
+		$answer = UsersModel::showUsers($table, $item, $value);
+
+		return $answer;
+	}
 }

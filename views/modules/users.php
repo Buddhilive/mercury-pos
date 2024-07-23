@@ -41,21 +41,36 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>admin</td>
-                            <td>admin</td>
-                            <td><img src="views/dist/img/avatar.png" class="img-thumbnail" width="40px"></td>
-                            <td>Administrator</td>
-                            <td><button class="btn btn-success btn-xs">Activated</button></td>
-                            <td>2024-7-24 19:29:30</td>
+                        <?php
+                        $item = null;
+                        $value = null;
+
+                        $all_users = UserController::getAllUsers($item, $value);
+
+                        foreach ($all_users as $key => $user) {
+                            echo '<tr>
+                            <td>' . $user['id'] . '</td>
+                            <td>' . $user['name'] . '</td>
+                            <td>' . $user['username'] . '</td>';
+                            
+                            if ($user['photo'] != '') {
+                                echo '<td><img src="' . $user['photo'] . '" class="img-thumbnail" width="40px"></td>';
+                            } else {
+                                echo '<td><img src="views/dist/img/avatar.png" class="img-thumbnail" width="40px"></td>';
+                            }
+
+                            echo '<td>' . $user['profile'] . '</td>
+                            <td><button class="btn btn-success btn-xs">' . $user['status'] . '</button></td>
+                            <td>' . $user['last_login'] . '</td>
                             <td>
                                 <div class="btn-group">
                                     <button class="btn btn-warning btnEditUser" idUser="" data-toggle="modal" data-target="#editUser"><i class="fa fa-pencil-alt"></i></button>
                                     <button class="btn btn-danger btnDeleteUser" userId="" username="" userPhoto=""><i class="fa fa-times"></i></button>
                                 </div>
                             </td>
-                        </tr>
+                        </tr>';
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>
@@ -135,9 +150,9 @@
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Save</button>
                 </div>
-                <?php 
-                    $new_user = new UserController();
-                    $new_user -> createUser();
+                <?php
+                $new_user = new UserController();
+                $new_user->createUser();
                 ?>
             </form>
         </div>
