@@ -18,14 +18,18 @@ class UserController
                 // var_dump($answer);
 
                 if ($answer["username"] == $_POST["authUsername"] && $answer["password"] == $encryptpass) {
-                    $_SESSION["authSession"] = "ok";
-                    $_SESSION["id"] = $answer["id"];
-                    $_SESSION["name"] = $answer["name"];
-                    $_SESSION["username"] = $answer["username"];
-                    $_SESSION["photo"] = $answer["photo"];
-                    $_SESSION["profile"] = $answer["profile"];
-                    header('Location: dashboard');
-                    exit;
+                    if ($answer["status"] == 1) {
+                        $_SESSION["authSession"] = "ok";
+                        $_SESSION["id"] = $answer["id"];
+                        $_SESSION["name"] = $answer["name"];
+                        $_SESSION["username"] = $answer["username"];
+                        $_SESSION["photo"] = $answer["photo"];
+                        $_SESSION["profile"] = $answer["profile"];
+                        header('Location: dashboard');
+                        exit;
+                    } else {
+                        echo '<br><div class="alert alert-danger">User is deactivated</div>';
+                    }
                 } else {
                     echo '<br><div class="alert alert-danger">User or password incorrect</div>';
                 }
