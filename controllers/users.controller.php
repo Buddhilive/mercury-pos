@@ -25,8 +25,31 @@ class UserController
                         $_SESSION["username"] = $answer["username"];
                         $_SESSION["photo"] = $answer["photo"];
                         $_SESSION["profile"] = $answer["profile"];
-                        header('Location: dashboard');
-                        exit;
+
+                        /* 
+                            Supported time zones: https://www.php.net/manual/en/timezones.php
+                        */
+
+                        date_default_timezone_set("Asia/Colombo");
+                        $date = date('Y-m-d');
+                        $hour = date('H:i:s');
+
+                        $actualDate = $date . ' ' . $hour;
+
+                        $item1 = "last_login";
+                        $value1 = $actualDate;
+
+                        $item2 = "id";
+                        $value2 = $answer["id"];
+
+                        $lastLogin = UsersModel::updateUser($table, $item1, $value1, $item2, $value2);
+
+                        if ($lastLogin == "ok") {
+                            header('Location: dashboard');
+                            exit;
+                        } else {
+                            '<br><div class="alert alert-danger">Something went wrong.</div>';
+                        }
                     } else {
                         echo '<br><div class="alert alert-danger">User is deactivated</div>';
                     }
