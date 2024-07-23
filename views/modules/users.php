@@ -68,7 +68,7 @@
                             echo '<td>' . $user['last_login'] . '</td>
                             <td>
                                 <div class="btn-group">
-                                    <button class="btn btn-warning btnEditUser" idUser="" data-toggle="modal" data-target="#editUser"><i class="fa fa-pencil-alt"></i></button>
+                                    <button class="btn btn-warning btnEditUser" idUser="' . $user['id'] . '" data-toggle="modal" data-target="#editUser"><i class="fa fa-pencil-alt"></i></button>
                                     <button class="btn btn-danger btnDeleteUser" userId="" username="" userPhoto=""><i class="fa fa-times"></i></button>
                                 </div>
                             </td>
@@ -182,7 +182,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa fa-user"></i></span>
                                 </div>
-                                <input class="form-control input-lg" type="text" name="editName" value="" required>
+                                <input class="form-control input-lg" type="text" id="editName" name="editName" value="" required>
                             </div>
                         </div>
 
@@ -192,7 +192,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa fa-key"></i></span>
                                 </div>
-                                <input class="form-control input-lg" type="text" id="editUser" name="editUser" value="" required>
+                                <input class="form-control input-lg" type="text" id="editUsername" name="editUser" value="" readonly>
                             </div>
                         </div>
 
@@ -203,6 +203,7 @@
                                     <span class="input-group-text"><i class="fa fa-lock"></i></span>
                                 </div>
                                 <input class="form-control input-lg" type="password" name="editPasswd" placeholder="Type new password" required>
+                                <input type="hidden" name="currentPasswd" id="currentPasswd">
                             </div>
                         </div>
 
@@ -213,7 +214,7 @@
                                     <span class="input-group-text"><i class="fa fa-user"></i></span>
                                 </div>
                                 <select class="form-control input-lg" name="editProfile">
-                                    <option value="" id="EditProfile"></option>
+                                    <option value="" id="editProfile"></option>
                                     <option value="administrator">Administrator</option>
                                     <option value="special">Special</option>
                                     <option value="seller">Seller</option>
@@ -226,6 +227,7 @@
                             <input class="newPics" type="file" name="editPhoto">
                             <p class="help-block">Maximum size 2Mb</p>
                             <img class="thumbnail preview" src="views/dist/img/avatar.png" width="100px">
+                            <input type="hidden" name="currentPicture" id="currentPicture">
                         </div>
                     </div>
                 </div>
@@ -234,8 +236,8 @@
                     <button type="submit" class="btn btn-primary">Modify</button>
                 </div>
                 <?php
-                /* $new_user = new UserController();
-                $new_user->createUser(); */
+                $edit_user = new UserController();
+                $edit_user -> editUser();
                 ?>
             </form>
         </div>
