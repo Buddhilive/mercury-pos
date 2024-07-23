@@ -42,11 +42,10 @@ $(document).on("click", ".btnEditUser", function(){
  		processData: false,
  		dataType: "json",
  		success: function(answer){ 			
- 			// console.log("answer", answer);
- 			$("#EditName").val(answer["name"]);
- 			$("#EditUser").val(answer["user"]);
- 			$("#EditProfile").html(answer["profile"]);
- 			$("#EditProfile").val(answer["profile"]);
+ 			$("#editName").val(answer["name"]);
+ 			$("#editUsername").val(answer["username"]);
+ 			$("#editProfile").html(answer["profile"]);
+ 			$("#editProfile").val(answer["profile"]);
  			$("#currentPasswd").val(answer["password"]);
  			$("#currentPicture").val(answer["photo"]);			
  			if(answer["photo"] != ''){
@@ -72,7 +71,7 @@ $(document).on("click", ".btnActivate", function(){
       success: function(answer){    	
       	// console.log("answer", answer);
       	if(window.matchMedia("(max-width:767px)").matches){		
-			swal({
+			Swal.fire({
 				title: "The user status has been updated",
 				type: "success",
 				confirmButtonText: "Close"	
