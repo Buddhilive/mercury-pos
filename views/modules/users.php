@@ -162,3 +162,82 @@
         </div>
     </div>
 </div>
+
+<!-- Edit user modal -->
+<div id="editUser" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Edit user</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form role="form" method="POST" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <div class="box-body">
+                        <!--Input name -->
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                </div>
+                                <input class="form-control input-lg" type="text" name="editName" value="" required>
+                            </div>
+                        </div>
+
+                        <!-- input username -->
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-key"></i></span>
+                                </div>
+                                <input class="form-control input-lg" type="text" id="editUser" name="editUser" value="" required>
+                            </div>
+                        </div>
+
+                        <!-- input password -->
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                                </div>
+                                <input class="form-control input-lg" type="password" name="editPasswd" placeholder="Type new password" required>
+                            </div>
+                        </div>
+
+                        <!-- input profile -->
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                </div>
+                                <select class="form-control input-lg" name="editProfile">
+                                    <option value="" id="EditProfile"></option>
+                                    <option value="administrator">Administrator</option>
+                                    <option value="special">Special</option>
+                                    <option value="seller">Seller</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- Uploading image -->
+                        <div class="form-group">
+                            <div class="panel">Upload image</div>
+                            <input class="newPics" type="file" name="editPhoto">
+                            <p class="help-block">Maximum size 2Mb</p>
+                            <img class="thumbnail preview" src="views/dist/img/avatar.png" width="100px">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Modify</button>
+                </div>
+                <?php
+                /* $new_user = new UserController();
+                $new_user->createUser(); */
+                ?>
+            </form>
+        </div>
+    </div>
+</div>
