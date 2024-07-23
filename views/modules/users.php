@@ -52,16 +52,20 @@
                             <td>' . $user['id'] . '</td>
                             <td>' . $user['name'] . '</td>
                             <td>' . $user['username'] . '</td>';
-                            
+
                             if ($user['photo'] != '') {
                                 echo '<td><img src="' . $user['photo'] . '" class="img-thumbnail" width="40px"></td>';
                             } else {
                                 echo '<td><img src="views/dist/img/avatar.png" class="img-thumbnail" width="40px"></td>';
                             }
 
-                            echo '<td>' . $user['profile'] . '</td>
-                            <td><button class="btn btn-success btn-xs">' . $user['status'] . '</button></td>
-                            <td>' . $user['last_login'] . '</td>
+                            echo '<td>' . $user['profile'] . '</td>';
+                            if ($user["status"] != 0) {
+                                echo '<td><button class="btn btn-success btnActivate btn-xs" userId="' . $user["id"] . '" userStatus="0">Activated</button></td>';
+                            } else {
+                                echo '<td><button class="btn btn-danger btnActivate btn-xs" userId="' . $user["id"] . '" userStatus="1">Deactivated</button></td>';
+                            }
+                            echo '<td>' . $user['last_login'] . '</td>
                             <td>
                                 <div class="btn-group">
                                     <button class="btn btn-warning btnEditUser" idUser="" data-toggle="modal" data-target="#editUser"><i class="fa fa-pencil-alt"></i></button>
