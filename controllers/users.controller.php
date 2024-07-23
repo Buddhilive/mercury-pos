@@ -19,6 +19,11 @@ class UserController
 
                 if ($answer["username"] == $_POST["authUsername"] && $answer["password"] == $encryptpass) {
                     $_SESSION["authSession"] = "ok";
+                    $_SESSION["id"] = $answer["id"];
+                    $_SESSION["name"] = $answer["name"];
+                    $_SESSION["username"] = $answer["username"];
+                    $_SESSION["photo"] = $answer["photo"];
+                    $_SESSION["profile"] = $answer["profile"];
                     header('Location: dashboard');
                     exit;
                 } else {
@@ -42,34 +47,34 @@ class UserController
                 $encryptpass = crypt($_POST["newPasswd"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
 
                 $photo = "";
-			
-				if (isset($_FILES["newPhoto"]["tmp_name"])){
-					list($width, $height) = getimagesize($_FILES["newPhoto"]["tmp_name"]);
-					
-					$newWidth = 500;
-					$newHeight = 500;
 
-					$folder = "views/uploads/images/users/".$_POST["newUser"];
+                if (isset($_FILES["newPhoto"]["tmp_name"])) {
+                    list($width, $height) = getimagesize($_FILES["newPhoto"]["tmp_name"]);
 
-					mkdir($folder, 0755, true);
+                    $newWidth = 500;
+                    $newHeight = 500;
 
-					if($_FILES["newPhoto"]["type"] == "image/jpeg"){
-						$randomNumber = mt_rand(100,999);						
-						$photo = "views/uploads/images/users/".$_POST["newUser"]."/".$randomNumber.".jpg";						
-						$srcImage = imagecreatefromjpeg($_FILES["newPhoto"]["tmp_name"]);						
-						$destination = imagecreatetruecolor($newWidth, $newHeight);
-						imagecopyresized($destination, $srcImage, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
-						imagejpeg($destination, $photo);
-					}
-					if ($_FILES["newPhoto"]["type"] == "image/png") {
-						$randomNumber = mt_rand(100,999);						
-						$photo = "views/uploads/images/users/".$_POST["newUser"]."/".$randomNumber.".png";					
-						$srcImage = imagecreatefrompng($_FILES["newPhoto"]["tmp_name"]);						
-						$destination = imagecreatetruecolor($newWidth, $newHeight);
-						imagecopyresized($destination, $srcImage, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
-						imagepng($destination, $photo);
-					}
-				}
+                    $folder = "views/uploads/images/users/" . $_POST["newUser"];
+
+                    mkdir($folder, 0755, true);
+
+                    if ($_FILES["newPhoto"]["type"] == "image/jpeg") {
+                        $randomNumber = mt_rand(100, 999);
+                        $photo = "views/uploads/images/users/" . $_POST["newUser"] . "/" . $randomNumber . ".jpg";
+                        $srcImage = imagecreatefromjpeg($_FILES["newPhoto"]["tmp_name"]);
+                        $destination = imagecreatetruecolor($newWidth, $newHeight);
+                        imagecopyresized($destination, $srcImage, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
+                        imagejpeg($destination, $photo);
+                    }
+                    if ($_FILES["newPhoto"]["type"] == "image/png") {
+                        $randomNumber = mt_rand(100, 999);
+                        $photo = "views/uploads/images/users/" . $_POST["newUser"] . "/" . $randomNumber . ".png";
+                        $srcImage = imagecreatefrompng($_FILES["newPhoto"]["tmp_name"]);
+                        $destination = imagecreatetruecolor($newWidth, $newHeight);
+                        imagecopyresized($destination, $srcImage, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
+                        imagepng($destination, $photo);
+                    }
+                }
 
                 $data = array(
                     'name' => $_POST["newName"],
