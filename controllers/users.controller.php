@@ -271,4 +271,36 @@ class UserController
             }
         }
     }
+
+    static public function deleteUser()
+    {
+
+        if (isset($_GET["userId"])) {
+
+            $table = "mp_users";
+            $data = $_GET["userId"];
+
+            if ($_GET["userPhoto"] != "") {
+                unlink($_GET["userPhoto"]);
+                rmdir('views/uploads/images/users/' . $_GET["username"]);
+            }
+
+            $answer = UsersModel::deleteUser($table, $data);
+
+            if ($answer == "ok") {
+                echo '<script>
+				Swal.fire({
+					  type: "success",
+					  title: "The user has been succesfully deleted",
+					  showConfirmButton: true,
+					  confirmButtonText: "Close"
+					  }).then(function(result){			  	
+						if (result.value) {
+						    window.location = "users";
+						}
+					});
+				</script>';
+            }
+        }
+    }
 }

@@ -69,7 +69,7 @@
                             <td>
                                 <div class="btn-group">
                                     <button class="btn btn-warning btnEditUser" idUser="' . $user['id'] . '" data-toggle="modal" data-target="#editUser"><i class="fa fa-pencil-alt"></i></button>
-                                    <button class="btn btn-danger btnDeleteUser" userId="" username="" userPhoto=""><i class="fa fa-times"></i></button>
+                                    <button class="btn btn-danger btnDeleteUser" userId="' . $user['id'] . '" username="' . $user['username'] . '" userPhoto="' . $user['photo'] . '"><i class="fa fa-times"></i></button>
                                 </div>
                             </td>
                         </tr>';
@@ -202,7 +202,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa fa-lock"></i></span>
                                 </div>
-                                <input class="form-control input-lg" type="password" name="editPasswd" placeholder="Type new password" required>
+                                <input class="form-control input-lg" type="password" name="editPasswd" placeholder="Type new password">
                                 <input type="hidden" name="currentPasswd" id="currentPasswd">
                             </div>
                         </div>
@@ -243,3 +243,8 @@
         </div>
     </div>
 </div>
+
+<?php
+  $deleteUser = new UserController();
+  $deleteUser -> deleteUser();
+?> 

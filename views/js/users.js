@@ -124,8 +124,8 @@ $(document).on("click", ".btnDeleteUser", function(){
 	var userPhoto = $(this).attr("userPhoto");
 	var username = $(this).attr("username");
 	Swal.fire({
-		title: '¿Are you sure you want to delete the user?',
-		text: "¡if you're not sure you can cancel!",
+		title: 'Are you sure you want to delete the user?',
+		text: "if you're not sure you can cancel!",
 		type: 'warning',
 		showCancelButton: true,
 		confirmButtonColor: '#3085d6',
