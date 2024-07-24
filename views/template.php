@@ -88,6 +88,7 @@ if (isset($_SESSION["authSession"]) && $_SESSION["authSession"] == "ok") {
 <!-- Main -->
 <script src="views/js/main.js"></script>
 <script src="views/js/users.js"></script>
+<script src="views/js/categories.js"></script>
 </body>
 
 </html>

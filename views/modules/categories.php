@@ -100,3 +100,43 @@
         </div>
     </div>
 </div>
+
+<!-- Edit Category Modal -->
+<div id="editCategories" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Edit category</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form role="form" method="POST">
+                <div class="modal-body">
+                    <div class="box-body">
+                        <!--Input name -->
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-tag"></i></span>
+                                </div>
+                                <input class="form-control input-lg" type="text" id="editCategory" name="editCategory" required>
+                                <input type="hidden" name="idCategory" id="idCategory" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+
+                <?php
+                $editCategory = new CategoriesController();
+                $editCategory->editCategory();
+                ?>
+            </form>
+        </div>
+
+    </div>
+</div>
