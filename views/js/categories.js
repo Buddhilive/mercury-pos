@@ -19,3 +19,22 @@ $(".table").on("click", ".btnEditCategory", function(){
 	})
 
 });
+
+$(".table").on("click", ".btnDeleteCategory", function(){
+	 var idCategory = $(this).attr("idCategory");
+
+	 Swal.fire({
+	 	title: 'Are you sure you want to delete the category?',
+		text: "If you're not sure you can cancel!",
+		type: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33',
+		cancelButtonText: 'Cancel',
+		confirmButtonText: 'Yes, delete category!'
+	 }).then(function(result){
+	 	if(result.value){
+	 		window.location = "index.php?route=categories&idCategory="+idCategory;
+	 	}
+	 })
+});

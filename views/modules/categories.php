@@ -140,3 +140,8 @@
 
     </div>
 </div>
+
+<?php
+$deleteCategory = new CategoriesController();
+$deleteCategory->deleteCategory();
+?>
