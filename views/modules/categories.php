@@ -19,9 +19,9 @@
     <!-- Main content -->
     <section class="content">
 
-    <div class="card">
+        <div class="card">
             <div class="card-header">
-                <button class="btn btn-primary" data-toggle="modal" data-target="#addUser">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#addCategory">
                     Add Category
                 </button>
             </div>
@@ -53,4 +53,41 @@
 
     </section>
     <!-- /.content -->
+</div>
+
+<!-- Add new category modal -->
+<div id="addCategory" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Add category</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form role="form" method="POST" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <div class="box-body">
+                        <!--Input Category -->
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-tag"></i></span>
+                                </div>
+                                <input class="form-control input-lg" type="text" name="newCategory" placeholder="Category name" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+                <?php
+                $createCategory = new CategoriesController();
+                $createCategory->createCategory();
+                ?>
+            </form>
+        </div>
+    </div>
 </div>
