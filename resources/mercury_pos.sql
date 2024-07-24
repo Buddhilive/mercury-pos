@@ -35,3 +35,10 @@ VALUES
         current_timestamp(),
         current_timestamp()
     );
+
+CREATE TABLE
+    `mp_categories` (
+        `id` int (11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+        `Category` text NOT NULL,
+        `Date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    );
