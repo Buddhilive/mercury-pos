@@ -38,4 +38,11 @@ class CategoriesController {
 			}
 		}
     }
+
+	static public function showCategories($item, $value){
+		$table = "mp_categories";
+		$answer = CategoriesModel::showCategories($table, $item, $value);
+
+		return $answer;
+	}
 }

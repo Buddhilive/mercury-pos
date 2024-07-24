@@ -35,17 +35,26 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>admin</td>
-                            <td>admin</td>
-                            <td>
-                                <div class="btn-group">
-                                    <button class="btn btn-warning btnEditUser" idUser="" data-toggle="modal" data-target="#editUser"><i class="fa fa-pencil-alt"></i></button>
-                                    <button class="btn btn-danger btnDeleteUser" userId="" username="" userPhoto=""><i class="fa fa-times"></i></button>
-                                </div>
-                            </td>
-                        </tr>
+                        <?php
+                        $item = null;
+                        $value = null;
+
+                        $categories = CategoriesController::showCategories($item, $value);
+
+                        foreach ($categories as $key => $cat) {
+                            echo '<tr>
+                                  <td>' . ($key + 1) . '</td>
+                                  <td class="text-uppercase">' . $cat['category'] . '</td>
+                                  <td>       
+                                    <div class="btn-group">
+                                      <button class="btn btn-warning btnEditCategory" idCategory="' . $cat["id"] . '" data-toggle="modal" data-target="#editCategories"><i class="fa fa-pencil-alt"></i></button>
+        
+                                      <button class="btn btn-danger btnDeleteCategory" idCategory="' . $cat["id"] . '"><i class="fa fa-times"></i></button>
+                                    </div>    
+                                  </td>    
+                                </tr>';
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>
