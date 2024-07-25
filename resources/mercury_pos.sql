@@ -42,3 +42,17 @@ CREATE TABLE
         `category` text NOT NULL,
         `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     );
+
+CREATE TABLE
+    `mp_products` (
+        `id` int (11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+        `idCategory` int (11) NOT NULL,
+        `code` text NOT NULL,
+        `description` text NOT NULL,
+        `image` text NOT NULL,
+        `stock` int (11) NOT NULL,
+        `buyingPrice` float NOT NULL,
+        `sellingPrice` float NOT NULL,
+        `sales` int (11) NOT NULL,
+        `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    );
