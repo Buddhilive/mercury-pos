@@ -185,7 +185,7 @@ class UserController
                     if (!empty($_POST["currentPicture"])) {
                         unlink($_POST["currentPicture"]);
                     } else {
-                        mkdir($folder, 0755);
+                        mkdir($folder, 0755, true);
                     }
 
                     if ($_FILES["editPhoto"]["type"] == "image/jpeg") {

@@ -2,8 +2,16 @@ $('.productsTable').DataTable({
     "ajax": "ajax/datatable-products.ajax.php",
     "deferRender": true,
     "retrieve": true,
-    "processing": true
+    "processing": true,
+    "dataSrc": ""
 });
+
+/* $.ajax({
+    url: "ajax/datatable-products.ajax.php",
+    success: function (answer) {
+        console.log("answer", answer);
+    }
+}); */
 
 $("#newCategory").change(function () {
     var idCategory = $(this).val();
@@ -75,7 +83,7 @@ $(".newImage").change(function () {
 
         Swal.fire({
             title: "Error uploading image",
-            text: "¡The image should be in JPG o PNG format!",
+            text: "The image should be in JPG o PNG format!",
             type: "error",
             confirmButtonText: "¡Close!"
         });
@@ -84,9 +92,9 @@ $(".newImage").change(function () {
 
         Swal.fire({
             title: "Error uploading image",
-            text: "¡The image shouldn't be more than 2MB!",
+            text: "The image shouldn't be more than 2MB!",
             type: "error",
-            confirmButtonText: "¡Close!"
+            confirmButtonText: "Close!"
         });
     } else {
         var imageData = new FileReader;
@@ -126,7 +134,7 @@ $(".productsTable tbody").on("click", "button.btnEditProduct", function () {
                 dataType: "json",
                 success: function (answer) {
                     $("#editCategory").val(answer["id"]);
-                    $("#editCategory").html(answer["Category"]);
+                    $("#editCategory").html(answer["category"]);
                 }
             });
 

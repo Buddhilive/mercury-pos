@@ -32,7 +32,7 @@ class ProductsController
 
                     $folder = "views/uploads/images/products/" . $_POST["newCode"];
 
-                    mkdir($folder, 0755);
+                    mkdir($folder, 0755, true);
 
                     if ($_FILES["newProdPhoto"]["type"] == "image/jpeg") {
                         $random = mt_rand(100, 999);
@@ -73,7 +73,7 @@ class ProductsController
                     echo '<script>
 						Swal.fire({
 							  type: "success",
-							  title: "El Product ha sido guardado correctamente",
+							  title: "Product has been successfully saved.",
 							  showConfirmButton: true,
 							  confirmButtonText: "Close"
 							  }).then(function(result){
@@ -87,7 +87,7 @@ class ProductsController
                 echo '<script>
 					Swal.fire({
 						  type: "error",
-						  title: "¡El Product no puede ir con los campos vacíos o llevar caracteres especiales!",
+						  title: "The Product cannot have empty fields or have special characters!",
 						  showConfirmButton: true,
 						  confirmButtonText: "Close"
 						  }).then(function(result){
@@ -122,7 +122,7 @@ class ProductsController
                     if (!empty($_POST["currentImage"]) && $_POST["currentImage"] != "views/dist/img/boxed-bg.png") {
                         unlink($_POST["currentImage"]);
                     } else {
-                        mkdir($folder, 0755);
+                        mkdir($folder, 0755, true);
                     }
 
                     if ($_FILES["editImage"]["type"] == "image/jpeg") {
@@ -179,7 +179,7 @@ class ProductsController
                 echo '<script>
 					Swal.fire({
 						  type: "error",
-						  title: "¡The Product cannot be empty or have special characters!",
+						  title: "The Product cannot be empty or have special characters!",
 						  showConfirmButton: true,
 						  confirmButtonText: "Close"
 						  }).then(function(result){
@@ -197,7 +197,7 @@ class ProductsController
 
         if (isset($_GET["idProduct"])) {
 
-            $table = "products";
+            $table = "mp_products";
             $datum = $_GET["idProduct"];
 
             if ($_GET["image"] != "" && $_GET["image"] != "views/dist/img/boxed-bg.png") {
