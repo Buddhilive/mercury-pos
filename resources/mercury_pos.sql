@@ -56,3 +56,16 @@ CREATE TABLE
         `sales` int (11) NOT NULL,
         `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     );
+
+CREATE TABLE
+    `mp_customers` (
+        `id` int (11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+        `name` text NOT NULL,
+        `idDocument` int (11) NOT NULL,
+        `email` text NOT NULL,
+        `phone` text NOT NULL,
+        `address` text COLLATE NOT NULL,
+        `birthdate` date NOT NULL,
+        `purchases` int (11) NOT NULL,
+        `registerDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    );
