@@ -10,7 +10,7 @@ class CustomersController
                 preg_match('/^[0-9]+$/', $_POST["newIdDocument"]) &&
                 preg_match('/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $_POST["newEmail"]) &&
                 preg_match('/^[()\-0-9 ]+$/', $_POST["newPhone"]) &&
-                preg_match('/^[#\.\-a-zA-Z0-9 ]+$/', $_POST["newAddress"])
+                preg_match('/^[#\.\-\/\,a-zA-Z0-9 ]+$/', $_POST["newAddress"])
             ) {
                 $table = "mp_customers";
 
@@ -31,7 +31,7 @@ class CustomersController
 						  type: "success",
 						  title: "The customer has been saved",
 						  showConfirmButton: true,
-						  confirmButtonText: "Cerrar"
+						  confirmButtonText: "Ok"
 						  }).then(function(result){
 									if (result.value) {
 									window.location = "customers";
@@ -41,9 +41,9 @@ class CustomersController
                 }
             } else {
                 echo '<script>
-					Swal.form({
+					Swal.fire({
 						  type: "error",
-						  title: "¡Customer cannot be blank or especial characters!",
+						  title: "Customer cannot be blank or especial characters!",
 						  showConfirmButton: true,
 						  confirmButtonText: "Close"
 						  }).then(function(result){
@@ -119,7 +119,7 @@ class CustomersController
         }
     }
 
-    static public function ctrDeleteCustomer()
+    static public function deleteCustomer()
     {
         if (isset($_GET["idCustomer"])) {
             $table = "mp_customers";

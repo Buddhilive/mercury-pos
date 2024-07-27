@@ -86,6 +86,7 @@ if (isset($_SESSION["authSession"]) && $_SESSION["authSession"] == "ok") {
 <script src="views/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="views/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <!-- InputMask -->
+<script src="views/plugins/moment/moment.min.js"></script>
 <script src="views/plugins/inputmask/jquery.inputmask.min.js"></script>
 <!-- Custom Script -->
 <script src="views/js/main.js"></script>

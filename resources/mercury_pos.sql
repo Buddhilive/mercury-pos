@@ -64,8 +64,8 @@ CREATE TABLE
         `idDocument` int (11) NOT NULL,
         `email` text NOT NULL,
         `phone` text NOT NULL,
-        `address` text COLLATE NOT NULL,
+        `address` text NOT NULL,
         `birthdate` date NOT NULL,
-        `purchases` int (11) NOT NULL,
+        `purchases` int (11) NOT NULL DEFAULT '0',
         `registerDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     );
