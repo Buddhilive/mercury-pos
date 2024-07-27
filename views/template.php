@@ -85,11 +85,14 @@ if (isset($_SESSION["authSession"]) && $_SESSION["authSession"] == "ok") {
 <script src="views/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="views/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="views/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-<!-- Main -->
+<!-- InputMask -->
+<script src="views/plugins/inputmask/jquery.inputmask.min.js"></script>
+<!-- Custom Script -->
 <script src="views/js/main.js"></script>
 <script src="views/js/users.js"></script>
 <script src="views/js/categories.js"></script>
 <script src="views/js/products.js"></script>
+<script src="views/js/customers.js"></script>
 </body>
 
 </html>
