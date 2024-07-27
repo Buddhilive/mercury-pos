@@ -41,7 +41,7 @@ if (isset($_SESSION["authSession"]) && $_SESSION["authSession"] == "ok") {
             $_GET["route"] == "users" ||
             $_GET["route"] == "categories" ||
             $_GET["route"] == "products" ||
-            $_GET["route"] == "clients" ||
+            $_GET["route"] == "customers" ||
             $_GET["route"] == "sales" ||
             $_GET["route"] == "create-sales" ||
             $_GET["route"] == "reports" ||

@@ -47,7 +47,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="clients" class="nav-link">
+                    <a href="customers" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Customers
