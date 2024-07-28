@@ -94,6 +94,7 @@ if (isset($_SESSION["authSession"]) && $_SESSION["authSession"] == "ok") {
 <script src="views/js/categories.js"></script>
 <script src="views/js/products.js"></script>
 <script src="views/js/customers.js"></script>
+<script src="views/js/sales.js"></script>
 </body>
 
 </html>
