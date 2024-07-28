@@ -1,6 +1,6 @@
 <?php
 
-class ControllerSales
+class SalesController
 {
     static public function showSales($item, $value)
     {
@@ -230,7 +230,7 @@ class ControllerSales
         }
     }
 
-    static public function ctrDeleteSale()
+    static public function deleteSale()
     {
         if (isset($_GET["idSale"])) {
             $table = "mp_sales";
@@ -420,7 +420,7 @@ class ControllerSales
         }
     }
 
-    public function ctrAddingTotalSales()
+    public function addingTotalSales()
     {
         $table = "mp_sales";
         $answer = SalesModel::addingTotalSales($table);
