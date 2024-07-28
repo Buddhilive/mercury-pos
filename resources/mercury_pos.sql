@@ -69,3 +69,17 @@ CREATE TABLE
         `purchases` int (11) NOT NULL DEFAULT '0',
         `registerDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     );
+
+CREATE TABLE
+    `mp_sales` (
+        `id` int (11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+        `code` int (11) NOT NULL,
+        `idCustomer` int (11) NOT NULL,
+        `idSeller` int (11) NOT NULL,
+        `products` text NOT NULL,
+        `tax` int (11) NOT NULL,
+        `netPrice` float NOT NULL,
+        `totalPrice` float NOT NULL,
+        `paymentMethod` text NOT NULL,
+        `saledate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    );
