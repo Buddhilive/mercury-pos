@@ -40,18 +40,18 @@ $(".salesTable tbody").on("click", "button.addProductSale", function () {
             $(".newProduct").append(
                 '<div class="row" style="padding:5px 15px">' +
                 '<!-- Product description -->' +
-                '<div class="col-xs-6" style="padding-right:0px">' +
+                '<div class="col-md-6" style="padding-right:0px">' +
                 '<div class="input-group">' +
-                '<span class="input-group-addon"><button type="button" class="btn btn-danger btn-xs removeProduct" idProduct="' + idProduct + '"><i class="fa fa-times"></i></button></span>' +
+                '<div class="input-group-prepend"><span class="input-group-text"><button type="button" class="btn btn-danger btn-xs removeProduct" idProduct="' + idProduct + '"><i class="fa fa-times"></i></button></span></div>' +
                 '<input type="text" class="form-control newProductDescription" idProduct="' + idProduct + '" name="addProductSale" value="' + description + '" readonly required>' +
                 '</div>' +
                 '</div>' +
                 '<!-- Product quantity -->' +
-                '<div class="col-xs-3">' +
+                '<div class="col-md-3">' +
                 '<input type="number" class="form-control newProductQuantity" name="newProductQuantity" min="1" value="1" stock="' + stock + '" newStock="' + Number(stock - 1) + '" required>' +
                 '</div>' +
                 '<!-- product price -->' +
-                '<div class="col-xs-3 enterPrice" style="padding-left:0px">' +
+                '<div class="col-md-3 enterPrice" style="padding-left:0px">' +
                 '<div class="input-group">' +
                 '<span class="input-group-addon"><i class="ion ion-social-usd"></i></span>' +
                 '<input type="text" class="form-control newProductPrice" realPrice="' + price + '" name="newProductPrice" value="' + price + '" readonly required>' +
@@ -90,7 +90,7 @@ var idRemoveProduct = [];
 localStorage.removeItem("removeProduct");
 
 $(".saleForm").on("click", "button.removeProduct", function () {
-    $(this).parent().parent().parent().parent().remove();
+    $(this).parent().parent().parent().parent().parent().remove();
     var idProduct = $(this).attr("idProduct");
 
     if (localStorage.getItem("removeProduct") == null) {
