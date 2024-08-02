@@ -25,7 +25,7 @@
                 </a>
             </div>
             <div class="card-body">
-                <table class="table table-bordered table-striped table-responsive-lg data-tables">
+                <table class="table table-bordered table-striped table-responsive-lg tables">
                     <thead>
                         <tr>
                             <th style="width:10px">#</th>
@@ -73,7 +73,7 @@
                                 <div class="btn-group">                                   
                                     <div class="btn-group">
                                     <button class="btn btn-info"><i class="fa fa-print"></i></button>
-                                    <button class="btn btn-warning btnEditSale" idSale="' . $value["id"] . '"><i class="fa fa-pencil-aalt"></i></button>
+                                    <button class="btn btn-warning btnEditSale" idSale="' . $value["id"] . '"><i class="fa fa-pencil-alt"></i></button>
                                     <button class="btn btn-danger btnDeleteSale" idSale="' . $value["id"] . '"><i class="fa fa-times"></i></button>
                                 </div>  
                                 </td>
