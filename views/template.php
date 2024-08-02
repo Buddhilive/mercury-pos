@@ -89,6 +89,8 @@ if (isset($_SESSION["authSession"]) && $_SESSION["authSession"] == "ok") {
 <!-- InputMask -->
 <script src="views/plugins/moment/moment.min.js"></script>
 <script src="views/plugins/inputmask/jquery.inputmask.min.js"></script>
+<!-- jQuery Number -->
+<script src="views/js/jquery-number.js"></script>
 <!-- Custom Script -->
 <script src="views/js/main.js"></script>
 <script src="views/js/users.js"></script>
