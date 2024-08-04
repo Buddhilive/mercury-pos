@@ -20,8 +20,6 @@
     <section class="content">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Reports</h3>
-
                 <div class="card-tools">
                     <button type="button" class="btn btn-default" id="daterange-btn2">
                         <span>
@@ -32,11 +30,14 @@
                 </div>
             </div>
             <div class="card-body">
-                Start creating your amazing application!
+                <div class="row">
+                    <div class="col-md-12">
+                        <?php
+                        include "reports/sales-graph.php";
+                        ?>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 </div>
-
-<?php
-?>
