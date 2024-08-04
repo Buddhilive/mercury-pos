@@ -20,11 +20,19 @@ session_start();
     <link rel="stylesheet" href="views/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="views/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="views/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-    <link rel="stylesheet" href="views/plugins/daterangepicker/daterangepicker.css" >
+    <link rel="stylesheet" href="views/plugins/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="views/css/morris.css">
+    <link rel="stylesheet" href="views/plugins/chart.js/Chart.min.css">
+    <!-- jQuery -->
+    <script src="views/plugins/jquery/jquery.min.js"></script>
     <!-- sweetalert2 -->
     <link rel="stylesheet" href="views/css/swtalert.css">
     <!-- sweetalert2 -->
     <script src="views/js/swtalert.js"></script>
+    <!-- Charts -->
+    <script src="views/plugins/raphael/raphael.min.js"></script>
+    <script src="views/js/morris.js"></script>
+    <script src="views/plugins/chart.js/Chart.min.js"></script>
 </head>
 <?php
 /* Authorized content */
@@ -68,8 +76,6 @@ if (isset($_SESSION["authSession"]) && $_SESSION["authSession"] == "ok") {
 }
 ?>
 
-<!-- jQuery -->
-<script src="views/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="views/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
