@@ -71,18 +71,23 @@
 
                             $userAnswer = UserController::getAllUsers($itemUser, $valueUser);
 
+                            if (isset($_GET["hiddenProfile"]) && $_GET["hiddenProfile"] == "administrator") {
+                                $buttons = '<button class="btn btn-info btnPrintBill" saleCode="' . $value["code"] . '"><i class="fa fa-print"></i></button>
+                                    <button class="btn btn-warning btnEditSale" idSale="' . $value["id"] . '"><i class="fa fa-pencil-alt"></i></button>
+                                    <button class="btn btn-danger btnDeleteSale" idSale="' . $value["id"] . '"><i class="fa fa-times"></i></button>';
+                            } else {
+                                $buttons = '<button class="btn btn-info btnPrintBill" saleCode="' . $value["code"] . '"><i class="fa fa-print"></i></button>';
+                            }
+
                             echo '<td>' . $userAnswer["name"] . '</td>
                                 <td>' . $value["paymentMethod"] . '</td>
                                 <td>Rs. ' . number_format($value["netPrice"], 2) . '</td>
                                 <td>Rs. ' . number_format($value["totalPrice"], 2) . '</td>
                                 <td>' . $value["saledate"] . '</td>
                                 <td>
-                                <div class="btn-group">                                   
-                                    <div class="btn-group">
-                                    <button class="btn btn-info btnPrintBill" saleCode="' . $value["code"] . '"><i class="fa fa-print"></i></button>
-                                    <button class="btn btn-warning btnEditSale" idSale="' . $value["id"] . '"><i class="fa fa-pencil-alt"></i></button>
-                                    <button class="btn btn-danger btnDeleteSale" idSale="' . $value["id"] . '"><i class="fa fa-times"></i></button>
-                                </div>  
+                                <div class="btn-group">'                                   
+                                    . $buttons .
+                                '</div>  
                                 </td>
                             </tr>';
                         }
