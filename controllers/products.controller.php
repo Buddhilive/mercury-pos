@@ -227,7 +227,7 @@ class ProductsController
 
     static public function showAddingOfTheSales()
 	{
-		$table = "products";
+		$table = "mp_products";
 		$answer = ProductsModel::showAddingOfTheSales($table);
 
 		return $answer;

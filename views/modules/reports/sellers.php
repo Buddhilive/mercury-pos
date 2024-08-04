@@ -26,7 +26,7 @@ $dontrepeatnames = array_unique($arraySellers);
 ?>
 
 <div class="card">
-    <div class="card-header">Best Sellers</div>
+    <div class="card-header">Best Sales Rep</div>
     <div class="card-body">
         <div class="chart-responsive">
         <div class="chart" id="bar-chart1" style="height: 300px;"></div>
@@ -49,7 +49,7 @@ $dontrepeatnames = array_unique($arraySellers);
         xkey: 'y',
         ykeys: ['a'],
         labels: ['sales'],
-        preUnits: '$',
+        preUnits: 'Rs. ',
         hideHover: 'auto'
     });
 </script>

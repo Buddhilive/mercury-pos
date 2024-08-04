@@ -5,11 +5,17 @@ $order = "sales";
 $products = ProductsController::showProducts($item, $value, $order);
 $colours = array("red", "green", "yellow", "aqua", "purple", "blue", "cyan", "magenta", "orange", "gold");
 
+if (count($products) < 10) {
+    $prod_length = count($products);
+} else {
+    $prod_length = 10;
+}
+
 $salesTotal = ProductsController::showAddingOfTheSales();
 ?>
 
 <div class="card">
-    <div class="card-header">Best Seller Products</div>
+    <div class="card-header">Best Selling Products</div>
     <div class="card-body">
         <div class="row">
             <div class="col-md-12">
@@ -20,7 +26,13 @@ $salesTotal = ProductsController::showAddingOfTheSales();
             <!-- <div class="col-md-5">
                 <ul class="chart-legend clearfix">
                     <?php
-                    for ($i = 0; $i < 10; $i++) {
+                    if (count($products) < 10) {
+                        $prod_length2 = count($products);
+                    } else {
+                        $prod_length2 = 5;
+                    }
+
+                    for ($i = 0; $i < $prod_length2; $i++) {
                         echo ' <li><i class="fa fa-circle-o text-' . $colours[$i] . '"></i> ' . $products[$i]["description"] . '</li>';
                     }
                     ?>
@@ -29,9 +41,9 @@ $salesTotal = ProductsController::showAddingOfTheSales();
         </div>
     </div>
     <div class="card-footer">
-        <ul class="nav nav-pills nav-stacked">
+        <ul class="nav nav-pills nav-stacked" style="gap: 8px;">
             <?php
-            for ($i = 0; $i < 5; $i++) {
+            for ($i = 0; $i < $prod_length; $i++) {
                 echo '<li>                        
                         <a>
                         <img src="' . $products[$i]["image"] . '" class="img-thumbnail" width="60px" style="margin-right:10px"> 
@@ -51,21 +63,21 @@ $salesTotal = ProductsController::showAddingOfTheSales();
     var pieChartCanvas = $('#pieChart').get(0).getContext('2d');
     var pieData = [
         <?php
-        for ($i = 0; $i < count($products); $i++) {
+        for ($i = 0; $i < $prod_length; $i++) {
             echo $products[$i]["sales"] . ",";
         }
         ?>
     ];
     var pieLabels = [
         <?php
-        for ($i = 0; $i < count($products); $i++) {
+        for ($i = 0; $i < $prod_length; $i++) {
             echo "'" . $products[$i]["description"] . "',";
         }
         ?>
     ];
     var pieColors = [
         <?php
-        for ($i = 0; $i < count($products); $i++) {
+        for ($i = 0; $i < $prod_length; $i++) {
             echo "'" . $colours[$i] . "',";
         }
         ?>

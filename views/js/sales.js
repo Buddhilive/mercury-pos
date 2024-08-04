@@ -298,7 +298,7 @@ $("#newPaymentMethod").change(function () {
             '<input type="text" class="form-control" id="newCashValue" placeholder="000000" required>' +
             '</div>' +
             '</div>' +
-            '<div class="col-md-6" id="getCashChange" style="padding-left:0px">' +
+            '<div class="col-md-6" id="getCashChange">' +
             '<div class="input-group">' +
             '<div class="input-group-prepend"><span class="input-group-text">Rs.</span></div>' +
             '<input type="text" class="form-control" id="newCashChange" placeholder="000000" readonly required>' +
@@ -315,7 +315,7 @@ $("#newPaymentMethod").change(function () {
         $(this).parent().parent().removeClass('col-xs-4');
         $(this).parent().parent().addClass('col-xs-6');
         $(this).parent().parent().parent().children('.paymentMethodBoxes').html(
-            '<div class="col-md-6" style="padding-left:0px">' +
+            '<div class="col-md-12">' +
             '<div class="input-group">' +
             '<input type="number" min="0" class="form-control" id="newTransactionCode" placeholder="Transaction code"  required>' +
             '<div class="input-group-append"><span class="input-group-text"><i class="fa fa-lock"></i></span></div>' +

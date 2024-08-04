@@ -48,7 +48,7 @@ $dontrepeatnames = array_unique($arrayCustomers);
         xkey: 'y',
         ykeys: ['a'],
         labels: ['sales'],
-        preUnits: '$',
+        preUnits: 'Rs. ',
         hideHover: 'auto'
     });
 </script>

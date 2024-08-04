@@ -4,6 +4,12 @@ $item = null;
 $value = null;
 $order = "id";
 
+if (count($products) < 10) {
+    $prod_length = count($products);
+} else {
+    $prod_length = 10;
+}
+
 $products = ProductsController::showProducts($item, $value, $order);
 
 ?>
@@ -24,16 +30,16 @@ $products = ProductsController::showProducts($item, $value, $order);
     <div class="card-body">
         <ul class="products-list product-list-in-box">
             <?php
-            for ($i = 0; $i < count($products); $i++) {
+            for ($i = 0; $i < $prod_length; $i++) {
                 echo '<li class="item">
                     <div class="product-img">
                         <img src="' . $products[$i]["image"] . '" alt="Product Image">
                     </div>
                     <div class="product-info">
-                        <a href="" class="product-title">
-                            ' . $products[$i]["description"] . '
-                            <span class="label label-warning pull-right">$' . $products[$i]["sellingPrice"] . '</span>
-                        </a>
+                        <h6 class="product-title text-blue">
+                            ' . $products[$i]["description"] . ' - 
+                            <span class="text-danger">Rs. ' . $products[$i]["sellingPrice"] . '</span>
+                        </h6>
                     </div>
                 </li>';
             }
