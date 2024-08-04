@@ -45,7 +45,7 @@ class printBill
 		$block1 = <<<EOF
 	<table>		
 		<tr>			
-			<td style="width:150px"><img src="images/logo-negro-bloque.png"></td>
+			<td style="width:50px"><img src="../assets/logo.png"></td>
 			<td style="background-color:white; width:140px">			
 				<div style="font-size:8.5px; text-align:right; line-height:15px;">					
 					<br>
