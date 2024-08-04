@@ -80,17 +80,26 @@ class ProductsModel
 	}
 
 	static public function updateProduct($table, $item1, $value1, $value)
-    {
-        $stmt = Connection::connect()->prepare("UPDATE $table SET $item1 = :$item1 WHERE id = :id");
-        $stmt->bindParam(":" . $item1, $value1, PDO::PARAM_STR);
-        $stmt->bindParam(":id", $value, PDO::PARAM_STR);
+	{
+		$stmt = Connection::connect()->prepare("UPDATE $table SET $item1 = :$item1 WHERE id = :id");
+		$stmt->bindParam(":" . $item1, $value1, PDO::PARAM_STR);
+		$stmt->bindParam(":id", $value, PDO::PARAM_STR);
 
-        if ($stmt->execute()) {
-            return "ok";
-        } else {
-            return "error";
-        }
+		if ($stmt->execute()) {
+			return "ok";
+		} else {
+			return "error";
+		}
 
-        $stmt = null;
-    }
+		$stmt = null;
+	}
+
+	static public function showAddingOfTheSales($table)
+	{
+		$stmt = Connection::connect()->prepare("SELECT SUM(sales) as total FROM $table");
+		$stmt->execute();
+
+		return $stmt->fetch();
+		$stmt = null;
+	}
 }
