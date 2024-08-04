@@ -19,10 +19,17 @@
     <!-- Main content -->
     <section class="content">
         <div class="card">
-            <div class="card-header">
-                <a class="btn btn-primary" href="create-sale">
+            <div class="card-header d-flex">
+                <a class="btn btn-primary" href="create-sales">
                     Add Sale
                 </a>
+                <span class="flex-grow-1"></span>
+                <button type="button" class="btn btn-default pull-right" id="daterange-btn">
+                    <span>
+                        <i class="fa fa-calendar"></i> Date Range
+                    </span>
+                    <i class="fa fa-caret-down"></i>
+                </button>
             </div>
             <div class="card-body">
                 <table class="table table-bordered table-striped table-responsive-lg tables">
@@ -66,13 +73,13 @@
 
                             echo '<td>' . $userAnswer["name"] . '</td>
                                 <td>' . $value["paymentMethod"] . '</td>
-                                <td>$ ' . number_format($value["netPrice"], 2) . '</td>
-                                <td>$ ' . number_format($value["totalPrice"], 2) . '</td>
+                                <td>Rs. ' . number_format($value["netPrice"], 2) . '</td>
+                                <td>Rs. ' . number_format($value["totalPrice"], 2) . '</td>
                                 <td>' . $value["saledate"] . '</td>
                                 <td>
                                 <div class="btn-group">                                   
                                     <div class="btn-group">
-                                    <button class="btn btn-info btnPrintBill" saleCode="'.$value["code"].'"><i class="fa fa-print"></i></button>
+                                    <button class="btn btn-info btnPrintBill" saleCode="' . $value["code"] . '"><i class="fa fa-print"></i></button>
                                     <button class="btn btn-warning btnEditSale" idSale="' . $value["id"] . '"><i class="fa fa-pencil-alt"></i></button>
                                     <button class="btn btn-danger btnDeleteSale" idSale="' . $value["id"] . '"><i class="fa fa-times"></i></button>
                                 </div>  

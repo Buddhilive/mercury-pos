@@ -20,6 +20,7 @@ session_start();
     <link rel="stylesheet" href="views/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="views/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="views/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" href="views/plugins/daterangepicker/daterangepicker.css" >
     <!-- sweetalert2 -->
     <link rel="stylesheet" href="views/css/swtalert.css">
     <!-- sweetalert2 -->
@@ -86,8 +87,10 @@ if (isset($_SESSION["authSession"]) && $_SESSION["authSession"] == "ok") {
 <script src="views/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="views/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="views/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-<!-- InputMask -->
+<!-- Date range picker -->
 <script src="views/plugins/moment/moment.min.js"></script>
+<script src="views/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- InputMask -->
 <script src="views/plugins/inputmask/jquery.inputmask.min.js"></script>
 <!-- jQuery Number -->
 <script src="views/js/jquery-number.js"></script>
