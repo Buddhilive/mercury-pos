@@ -59,6 +59,6 @@ $(".daterangepicker.opensright .ranges li").on("click", function () {
         }
 
         localStorage.setItem("captureRange2", "Today");
-        window.location = "index.php?route=sales&initialDate=" + initialDate + "&finalDate=" + finalDate;
+        window.location = "index.php?route=reports&initialDate=" + initialDate + "&finalDate=" + finalDate;
     }
 });
