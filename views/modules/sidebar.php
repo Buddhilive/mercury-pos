@@ -46,69 +46,88 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="customers" class="nav-link">
-                        <i class="nav-icon fas fa-users"></i>
-                        <p>
-                            Customers
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="categories" class="nav-link">
-                        <i class="nav-icon fas fa-tags"></i>
-                        <p>
-                            Categories
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="products" class="nav-link">
-                        <i class="nav-icon fas fa-cubes"></i>
-                        <p>
-                            Products
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-shopping-bag"></i>
-                        <p>
-                            Sales
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="create-sales" class="nav-link">
-                                <i class="fas fa-cart-plus nav-icon"></i>
-                                <p>Create Sales</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="sales" class="nav-link">
-                                <i class="fas fa-money-bill nav-icon"></i>
-                                <p>All Sales</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="reports" class="nav-link">
-                        <i class="nav-icon fas fa-chart-bar"></i>
-                        <p>
-                            Reports
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="users" class="nav-link">
-                        <i class="nav-icon fas fa-id-card"></i>
-                        <p>
-                            Users
-                        </p>
-                    </a>
-                </li>
+                <?php
+                if ($_SESSION["profile"] == "administrator" || $_SESSION["profile"] == "seller") {
+                    echo '<li class="nav-item">
+                        <a href="customers" class="nav-link">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>
+                                Customers
+                            </p>
+                        </a>
+                    </li>';
+                }
+
+                if ($_SESSION["profile"] == "administrator" || $_SESSION["profile"] == "special") {
+                    echo '<li class="nav-item">
+                        <a href="categories" class="nav-link">
+                            <i class="nav-icon fas fa-tags"></i>
+                            <p>
+                                Categories
+                            </p>
+                        </a>
+                    </li>';
+                }
+
+                if ($_SESSION["profile"] == "administrator" || $_SESSION["profile"] == "special") {
+                    echo '<li class="nav-item">
+                        <a href="products" class="nav-link">
+                            <i class="nav-icon fas fa-cubes"></i>
+                            <p>
+                                Products
+                            </p>
+                        </a>
+                    </li>';
+                }
+
+                if ($_SESSION["profile"] == "administrator" || $_SESSION["profile"] == "seller") {
+                    echo '<li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-shopping-bag"></i>
+                            <p>
+                                Sales
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="create-sales" class="nav-link">
+                                    <i class="fas fa-cart-plus nav-icon"></i>
+                                    <p>Create Sales</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="sales" class="nav-link">
+                                    <i class="fas fa-money-bill nav-icon"></i>
+                                    <p>All Sales</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>';
+                }
+
+                if ($_SESSION["profile"] == "administrator") {
+                    echo '<li class="nav-item">
+                        <a href="reports" class="nav-link">
+                            <i class="nav-icon fas fa-chart-bar"></i>
+                            <p>
+                                Reports
+                            </p>
+                        </a>
+                    </li>';
+                }
+
+                if ($_SESSION["profile"] == "administrator") {
+                    echo '<li class="nav-item">
+                        <a href="users" class="nav-link">
+                            <i class="nav-icon fas fa-id-card"></i>
+                            <p>
+                                Users
+                            </p>
+                        </a>
+                    </li>';
+                }
+                ?>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
