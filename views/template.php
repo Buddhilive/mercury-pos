@@ -57,7 +57,8 @@ if (isset($_SESSION["authSession"]) && $_SESSION["authSession"] == "ok") {
             $_GET["route"] == "create-sales" ||
             $_GET["route"] == 'edit-sale' ||
             $_GET["route"] == "reports" ||
-            $_GET["route"] == "logout"
+            $_GET["route"] == "logout" ||
+            $_GET["route"] == "access-denied"
         ) {
             include "modules/" . $_GET["route"] . ".php";
         } else {
