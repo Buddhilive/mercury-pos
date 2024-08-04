@@ -1,3 +1,14 @@
+<?php
+
+if ($_SESSION["profile"] != "administrator") {
+    echo '<script>
+    window.location = "access-denied";
+  </script>';
+    return;
+}
+
+?>
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -237,7 +248,7 @@
                 </div>
                 <?php
                 $edit_user = new UserController();
-                $edit_user -> editUser();
+                $edit_user->editUser();
                 ?>
             </form>
         </div>
@@ -245,6 +256,6 @@
 </div>
 
 <?php
-  $deleteUser = new UserController();
-  $deleteUser -> deleteUser();
-?> 
+$deleteUser = new UserController();
+$deleteUser->deleteUser();
+?>

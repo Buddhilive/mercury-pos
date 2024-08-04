@@ -1,3 +1,14 @@
+<?php
+
+if ($_SESSION["profile"] != "administrator") {
+    echo '<script>
+    window.location = "access-denied";
+  </script>';
+    return;
+}
+
+?>
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -95,7 +106,7 @@
                                     $item = "id";
                                     $valueProduct = $value["id"];
 
-                                    $answer = ProductsController::showproducts($item, $valueProduct);
+                                    $answer = ProductsController::showproducts($item, $valueProduct, "id");
 
                                     $lastStock = $answer["stock"] + $value["quantity"];
 

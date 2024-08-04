@@ -1,3 +1,14 @@
+<?php
+
+if ($_SESSION["profile"] != "administrator" && $_SESSION["profile"] != "seller") {
+    echo '<script>
+    window.location = "access-denied";
+  </script>';
+    return;
+}
+
+?>
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -85,8 +96,8 @@
                                 <td>Rs. ' . number_format($value["totalPrice"], 2) . '</td>
                                 <td>' . $value["saledate"] . '</td>
                                 <td>
-                                <div class="btn-group">'                                   
-                                    . $buttons .
+                                <div class="btn-group">'
+                                . $buttons .
                                 '</div>  
                                 </td>
                             </tr>';
