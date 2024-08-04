@@ -36,6 +36,21 @@
                         include "reports/sales-graph.php";
                         ?>
                     </div>
+                    <div class="col-md-6 col-xs-12">
+                        <?php
+                        include "reports/bestseller-products.php";
+                        ?>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <?php
+                        include "reports/sellers.php";
+                        ?>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <?php
+                        include "reports/buyers.php";
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>
