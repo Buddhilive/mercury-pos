@@ -42,7 +42,12 @@ class ProductsTable
                 $stock = "<button class='btn btn-success'>" . $products[$i]["stock"] . "</button>";
             }
 
-            $buttons =  "<div class='btn-group'><button class='btn btn-warning btnEditProduct' idProduct='" . $products[$i]["id"] . "' data-toggle='modal' data-target='#editProduct'><i class='fa fa-pencil-alt'></i></button><button class='btn btn-danger btnDeleteProduct' idProduct='" . $products[$i]["id"] . "' code='" . $products[$i]["code"] . "' image='" . $products[$i]["image"] . "'><i class='fa fa-times'></i></button></div>";
+            /* Show button based on permission */
+            if (isset($_GET["hiddenProfile"]) && $_GET["hiddenProfile"] == "special") {
+                $buttons =  "<div class='btn-group'><button class='btn btn-warning btnEditProduct' idProduct='" . $products[$i]["id"] . "' data-toggle='modal' data-target='#editProduct'><i class='fa fa-pencil-alt'></i></button></div>";
+            } else {
+                $buttons =  "<div class='btn-group'><button class='btn btn-warning btnEditProduct' idProduct='" . $products[$i]["id"] . "' data-toggle='modal' data-target='#editProduct'><i class='fa fa-pencil-alt'></i></button><button class='btn btn-danger btnDeleteProduct' idProduct='" . $products[$i]["id"] . "' code='" . $products[$i]["code"] . "' image='" . $products[$i]["image"] . "'><i class='fa fa-times'></i></button></div>";
+            }
 
             $jsonData .= '[
 						"' . ($i + 1) . '",

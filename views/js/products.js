@@ -1,5 +1,7 @@
+var hiddenProfile = $('#hiddenProfile').val();
+
 $('.productsTable').DataTable({
-    "ajax": "ajax/datatable-products.ajax.php",
+    "ajax": "ajax/datatable-products.ajax.php?hiddenProfile=" + hiddenProfile,
     "deferRender": true,
     "retrieve": true,
     "processing": true,
