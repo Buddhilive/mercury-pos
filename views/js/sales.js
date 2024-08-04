@@ -421,6 +421,12 @@ $(".tables").on("click", ".btnPrintBill", function () {
     window.open("views/modules/bill.php?code=" + saleCode, "_blank");
 });
 
+if (localStorage.getItem("captureRange") != null) {
+    $("#daterange-btn span").html(localStorage.getItem("captureRange"));
+} else {
+    $("#daterange-btn span").html('<i class="fa fa-calendar"></i> Date Range')
+}
+
 $('#daterange-btn').daterangepicker(
     {
         ranges: {
@@ -446,7 +452,7 @@ $('#daterange-btn').daterangepicker(
     }
 );
 
-$(".daterangepicker.opensleft .range_inputs .cancelBtn").on("click", function () {
+$(".daterangepicker.opensleft .drp-buttons .cancelBtn").on("click", function () {
     localStorage.removeItem("captureRange");
     localStorage.clear();
     window.location = "sales";
