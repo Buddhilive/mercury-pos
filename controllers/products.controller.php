@@ -224,4 +224,12 @@ class ProductsController
             }
         }
     }
+
+    static public function showAddingOfTheSales()
+	{
+		$table = "products";
+		$answer = ProductsModel::showAddingOfTheSales($table);
+
+		return $answer;
+	}
 }
