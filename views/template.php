@@ -23,6 +23,8 @@ session_start();
     <link rel="stylesheet" href="views/plugins/daterangepicker/daterangepicker.css">
     <link rel="stylesheet" href="views/css/morris.css">
     <link rel="stylesheet" href="views/plugins/chart.js/Chart.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- jQuery -->
     <script src="views/plugins/jquery/jquery.min.js"></script>
     <!-- sweetalert2 -->

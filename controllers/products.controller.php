@@ -3,10 +3,10 @@
 class ProductsController
 {
 
-    static public function showProducts($item, $value)
+    static public function showProducts($item, $value, $order)
     {
         $table = "mp_products";
-        $answer = ProductsModel::showProducts($table, $item, $value);
+        $answer = ProductsModel::showProducts($table, $item, $value, $order);
 
         return $answer;
     }
