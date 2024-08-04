@@ -27,6 +27,13 @@
                         </span>
                         <i class="fa fa-caret-down"></i>
                     </button>
+                    <?php
+                    if (isset($_GET["initialDate"])) {
+                        echo '<a class="btn btn-success" href="views/modules/download-report.php?report=report&initialDate=' . $_GET["initialDate"] . '&finalDate=' . $_GET["finalDate"] . '">Download Report</a>';
+                    } else {
+                        echo '<a class="btn btn-success" href="views/modules/download-report.php?report=report">Download Report</a>';
+                    }
+                    ?>
                 </div>
             </div>
             <div class="card-body">

@@ -9,7 +9,7 @@ if (isset($_GET["initialDate"])) {
     $finalDate = null;
 }
 
-$answer = SalesController::ctrSalesDatesRange($initialDate, $finalDate);
+$answer = SalesController::salesDatesRange($initialDate, $finalDate);
 
 $arrayDates = array();
 $arraySales = array();
