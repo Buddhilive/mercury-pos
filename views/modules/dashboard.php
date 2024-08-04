@@ -26,6 +26,16 @@
             include "home/top-widgets.php";
             ?>
         </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <?php
+                if ($_SESSION["profile"] == "Administrator") {
+                    include "home/recent-products.php";
+                }
+                include "home/recent-products.php";
+                ?>
+            </div>
+        </div>
     </section>
     <!-- /.content -->
 </div>
