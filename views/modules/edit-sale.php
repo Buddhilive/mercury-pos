@@ -172,9 +172,7 @@ if ($_SESSION["profile"] != "administrator") {
                                                 <td style="width: 50%">
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text">
-                                                                <i class="ion ion-social-usd"></i>
-                                                            </span>
+                                                            <span class="input-group-text">Rs.</span>
                                                         </div>
 
                                                         <input type="number" class="form-control" name="newSaleTotal" id="newSaleTotal" placeholder="00000" totalSale="<?php echo $sale["netPrice"]; ?>" value="<?php echo $sale["totalPrice"]; ?>" readonly required>
@@ -197,7 +195,7 @@ if ($_SESSION["profile"] != "administrator") {
                                 <div class="col-xs-6" style="padding-right: 0">
                                     <div class="input-group">
                                         <select class="form-control" name="newPaymentMethod" id="newPaymentMethod" required>
-                                            <option value="">Select payment method</option>
+                                            <option value="" disabled selected>Select payment method</option>
                                             <option value="cash">Cash</option>
                                             <option value="CC">Credit Card</option>
                                             <option value="DC">Debit Card</option>
@@ -205,7 +203,7 @@ if ($_SESSION["profile"] != "administrator") {
                                     </div>
                                 </div>
 
-                                <div class="paymentMethodBoxes"></div>
+                                <div class="paymentMethodBoxes row mt-3"></div>
 
                                 <input type="hidden" name="listPaymentMethod" id="listPaymentMethod" required>
                             </div>

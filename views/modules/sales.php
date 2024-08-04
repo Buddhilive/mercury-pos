@@ -82,7 +82,7 @@ if ($_SESSION["profile"] != "administrator" && $_SESSION["profile"] != "seller")
 
                             $userAnswer = UserController::getAllUsers($itemUser, $valueUser);
 
-                            if (isset($_GET["hiddenProfile"]) && $_GET["hiddenProfile"] == "administrator") {
+                            if ($_SESSION["profile"] == "administrator") {
                                 $buttons = '<button class="btn btn-info btnPrintBill" saleCode="' . $value["code"] . '"><i class="fa fa-print"></i></button>
                                     <button class="btn btn-warning btnEditSale" idSale="' . $value["id"] . '"><i class="fa fa-pencil-alt"></i></button>
                                     <button class="btn btn-danger btnDeleteSale" idSale="' . $value["id"] . '"><i class="fa fa-times"></i></button>';

@@ -46,7 +46,7 @@ class SalesController
 
             $getCustomer = CustomersModel::showCustomers($tableCustomers, $item, $valueCustomer);
 
-            $item1a = "mp_purchases";
+            $item1a = "purchases";
             $value1a = array_sum($totalPurchasedProducts) + $getCustomer["purchases"];
 
             $customerPurchases = CustomersModel::updateCustomer($tableCustomers, $item1a, $value1a, $valueCustomer);
@@ -83,7 +83,7 @@ class SalesController
 					  type: "success",
 					  title: "The sale has been succesfully added",
 					  showConfirmButton: true,
-					  confirmButtonText: "Cerrar"
+					  confirmButtonText: "Ok"
 					  }).then((result) => {
 								if (result.value) {
 								window.location = "sales";

@@ -47,13 +47,13 @@ $(".salesTable tbody").on("click", "button.addProductSale", function () {
                 '</div>' +
                 '</div>' +
                 '<!-- Product quantity -->' +
-                '<div class="col-md-3">' +
+                '<div class="col-md-2">' +
                 '<input type="number" class="form-control newProductQuantity" name="newProductQuantity" min="1" value="1" stock="' + stock + '" newStock="' + Number(stock - 1) + '" required>' +
                 '</div>' +
                 '<!-- product price -->' +
-                '<div class="col-md-3 enterPrice" style="padding-left:0px">' +
+                '<div class="col-md-4 enterPrice" style="padding-left:0px">' +
                 '<div class="input-group">' +
-                '<span class="input-group-addon"><i class="ion ion-social-usd"></i></span>' +
+                '<div class="input-group-prepend"><span class="input-group-text">Rs.</span></div>' +
                 '<input type="text" class="form-control newProductPrice" realPrice="' + price + '" name="newProductPrice" value="' + price + '" readonly required>' +
                 '</div>' +
                 '</div>' +
@@ -104,7 +104,7 @@ $(".saleForm").on("click", "button.removeProduct", function () {
 
     $("button.recoverButton[idProduct='" + idProduct + "']").removeClass('btn-default');
     $("button.recoverButton[idProduct='" + idProduct + "']").addClass('btn-primary addProductSale');
-    if ($(".newProducto").children().length == 0) {
+    if ($(".newProduct").children().length == 0) {
         $("#newTaxSale").val(0);
         $("#newTotalSale").val(0);
         $("#totalSale").val(0);
@@ -154,7 +154,7 @@ $(".btnAddProduct").click(function () {
                 '<!-- Product price -->' +
                 '<div class="col-xs-3 enterPrice" style="padding-left:0px">' +
                 '<div class="input-group">' +
-                '<span class="input-group-addon"><i class="ion ion-social-usd"></i></span>' +
+                '<div class="input-group-prepend"><span class="input-group-text">Rs.</span></div>' +
                 '<input type="text" class="form-control newProductPrice" realPrice="" name="newProductPrice" readonly required>' +
                 '</div>' +
                 '</div>' +
@@ -292,15 +292,15 @@ $("#newPaymentMethod").change(function () {
         $(this).parent().parent().removeClass("col-xs-6");
         $(this).parent().parent().addClass("col-xs-4");
         $(this).parent().parent().parent().children(".paymentMethodBoxes").html(
-            '<div class="col-xs-4">' +
+            '<div class="col-md-6">' +
             '<div class="input-group">' +
-            '<span class="input-group-addon"><i class="ion ion-social-usd"></i></span>' +
+            '<div class="input-group-prepend"><span class="input-group-text">Rs.</span></div>' +
             '<input type="text" class="form-control" id="newCashValue" placeholder="000000" required>' +
             '</div>' +
             '</div>' +
-            '<div class="col-xs-4" id="getCashChange" style="padding-left:0px">' +
+            '<div class="col-md-6" id="getCashChange" style="padding-left:0px">' +
             '<div class="input-group">' +
-            '<span class="input-group-addon"><i class="ion ion-social-usd"></i></span>' +
+            '<div class="input-group-prepend"><span class="input-group-text">Rs.</span></div>' +
             '<input type="text" class="form-control" id="newCashChange" placeholder="000000" readonly required>' +
             '</div>' +
             '</div>'
@@ -315,10 +315,10 @@ $("#newPaymentMethod").change(function () {
         $(this).parent().parent().removeClass('col-xs-4');
         $(this).parent().parent().addClass('col-xs-6');
         $(this).parent().parent().parent().children('.paymentMethodBoxes').html(
-            '<div class="col-xs-6" style="padding-left:0px">' +
+            '<div class="col-md-6" style="padding-left:0px">' +
             '<div class="input-group">' +
             '<input type="number" min="0" class="form-control" id="newTransactionCode" placeholder="Transaction code"  required>' +
-            '<span class="input-group-addon"><i class="fa fa-lock"></i></span>' +
+            '<div class="input-group-append"><span class="input-group-text"><i class="fa fa-lock"></i></span></div>' +
             '</div>' +
             '</div>')
     }
