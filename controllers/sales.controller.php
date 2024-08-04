@@ -419,7 +419,7 @@ class SalesController
         }
     }
 
-    public function addingTotalSales()
+    static public function addingTotalSales()
     {
         $table = "mp_sales";
         $answer = SalesModel::addingTotalSales($table);

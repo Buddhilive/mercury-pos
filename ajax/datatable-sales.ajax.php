@@ -9,7 +9,8 @@ class productsTableSales
     {
         $item = null;
         $value = null;
-        $products = ProductsController::showProducts($item, $value);
+        $order = "id";
+        $products = ProductsController::showProducts($item, $value, $order);
 
         if (count($products) == 0) {
             $jsonData = '{"data":[]}';
