@@ -51,7 +51,7 @@ $noRepeatDates = array_unique($arrayDates);
                 foreach ($noRepeatDates as $key) {
                     echo "{ y: '" . $key . "', Sales: " . $addingMonthPayments[$key] . " },";
                 }
-                echo "{y: '" . $key . "', Sales: " . $addingMonthPayments[$key] . " }";
+                // echo "{y: '" . $key . "', Sales: " . $addingMonthPayments[$key] . " }";
             } else {
                 echo "{ y: '0', Sales: '0' }";
             }
@@ -60,16 +60,16 @@ $noRepeatDates = array_unique($arrayDates);
         xkey: 'y',
         ykeys: ['Sales'],
         labels: ['Sales'],
-        lineColors: ['#efefef'],
+        lineColors: ['#4bc0c0'],
         lineWidth: 2,
         hideHover: 'auto',
-        gridTextColor: '#fff',
+        gridTextColor: '#000',
         gridStrokeWidth: 0.4,
         pointSize: 4,
-        pointStrokeColors: ['#efefef'],
-        gridLineColor: '#efefef',
+        pointStrokeColors: ['#4bc0c0'],
+        gridLineColor: '#4bc0c0',
         gridTextFamily: 'Open Sans',
-        preUnits: '$',
+        preUnits: 'Rs.',
         gridTextSize: 10
     });
 </script>
