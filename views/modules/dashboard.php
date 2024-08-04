@@ -20,19 +20,44 @@
     <section class="content">
         <div class="row">
             <?php
-            if ($_SESSION["profile"] == "Administrator") {
-                include "home/top-boxes.php";
+            if ($_SESSION["profile"] == "administrator") {
+                include "home/top-widgets.php";
             }
-            include "home/top-widgets.php";
             ?>
         </div>
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-md-12">
                 <?php
-                if ($_SESSION["profile"] == "Administrator") {
+                if ($_SESSION["profile"] == "administrator") {
+                    include "reports/sales-graph.php";
+                }
+                ?>
+            </div>
+
+            <div class="col-md-6">
+                <?php
+                if ($_SESSION["profile"] == "administrator") {
+                    include "reports/bestseller-products.php";
+                }
+                ?>
+            </div>
+            <div class="col-md-6">
+                <?php
+                if ($_SESSION["profile"] == "administrator") {
                     include "home/recent-products.php";
                 }
-                include "home/recent-products.php";
+                ?>
+            </div>
+
+            <div class="col-md-12">
+                <?php
+                if ($_SESSION["profile"] == "special" || $_SESSION["profile"] == "seller") {
+                    echo '<div class="box box-success">
+                        <div class="box-header">
+                            <h1>Welcome ' . $_SESSION["name"] . '</h1>
+                        </div>
+                    </div>';
+                }
                 ?>
             </div>
         </div>
