@@ -30,6 +30,4 @@ views/plugins/
 views/uploads/
 
 # extensions
-extensions/tcpdf/fonts/
-extensions/**/*.*
-!extensions/tcpdf/pdf/bill.php
+extensions/tcpdf/
