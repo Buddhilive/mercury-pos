@@ -28,10 +28,10 @@ VALUES
         NULL,
         'Super Admin',
         'admin',
-        '123456',
+        '$2a$07$asxx54ahjppf45sd87a5auFL5K1.Cmt9ZheoVVuudOi5BCi10qWly',
+        'administrator',
         '',
-        '',
-        '0',
+        '1',
         current_timestamp(),
         current_timestamp()
     );
